@@ -84,19 +84,42 @@ public class Navigator : MonoBehaviour
     public static async void RedirectPage(string uri)
     {
         Debug.Log("Debut du chargement du monde : " + uri);
+        
+        for(int x = 0;x < _historicalId;x++){
+          _historicalPage.RemoveAt(_historicalPage.Count - 1);
+        }
+        _historicalId = 0;
+        _historicalPage.Add(uri);
         LoadPage(uri);
+        
+        //
         
     }
     
     public static async void PreviousPage()
     {
+       
+        _historicalId += 1;
+        if(_historicalId >= _historicalPage.Count){
+            _historicalId = _historicalPage.Count - 1;
+            return;
+        }else{
+            LoadPage(_historicalPage[_historicalPage.Count - 1 - _historicalId]);
         
-        
+        }
     }
     
     
     public static async void NextPage()
     {
+        _historicalId -= 1;
+        if(_historicalId < 0){
+            _historicalId = 0;
+            return;
+        }else{
+            LoadPage(_historicalPage[_historicalPage.Count - 1 - _historicalId]);
+        
+        }
         
         
     }
@@ -108,6 +131,7 @@ public class Navigator : MonoBehaviour
     {
         Debug.Log("Debut du chargement du monde : " + uri);
         _adress = uri;
+        _textFieldAdresse.text = _adress;
         ClearPage();
         string requete = await GetRequest(uri);
         new Page(requete);
