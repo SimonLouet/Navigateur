@@ -5,7 +5,7 @@ using UnityEngine;
 using System;
 using Jint;
 using Newtonsoft.Json;
-
+using TMPro;
 
 public class TransformWeb
 {
@@ -215,6 +215,9 @@ public class Entity
     private string _id;
     private string _type;
     private string _href;
+    private string _text;
+    private float _textSize;
+    private string _textColor;
     
     private string _mesh;
     private string _meshCollider;
@@ -243,6 +246,8 @@ public class Entity
         SetId("");
         SetType("");
         SetHref("");
+        SetText("");
+        
         SetMesh("");
         SetMeshCollider("");
         
@@ -284,6 +289,24 @@ public class Entity
             SetHref(values["href"].ToString());
         }else{
             SetHref("");
+        }
+        
+        if(values.ContainsKey("text")){
+            SetText(values["text"].ToString());
+        }else{
+            SetText("");
+        }
+        
+        if(values.ContainsKey("textSize")){
+            SetTextSize(Convert.ToSingle(values["textSize"]));
+        }else{
+            SetTextSize(1);
+        }
+        
+        if(values.ContainsKey("textColor")){
+            SetTextColor(values["textColor"].ToString());
+        }else{
+            SetTextColor("#ffffffff");
         }
         
         
@@ -371,6 +394,70 @@ public class Entity
     }
     
     
+    public void SetText(string text){
+        _text = text;
+        if (_text == ""){
+            TextMesh textMesh = _gameObject.GetComponent<TextMesh>(); 
+            if(textMesh != null){
+                GameObject.Destroy (textMesh);
+            }
+            
+            MeshFilter filter = _gameObject.GetComponent<MeshFilter>();   
+            if(filter == null){
+                MeshRenderer renderer = _gameObject.GetComponent<MeshRenderer>(); 
+                if(renderer != null){
+                    GameObject.Destroy (renderer);
+                }
+            }
+        }else{
+            
+		    MeshRenderer renderer = _gameObject.GetComponent<MeshRenderer>(); 
+            if(renderer == null){
+                renderer = _gameObject.AddComponent<MeshRenderer> ();
+            }
+            
+            MeshFilter filter = _gameObject.GetComponent<MeshFilter>();   
+            if(filter != null){
+                GameObject.Destroy (filter);
+            }
+            
+            TextMesh textMesh = _gameObject.GetComponent<TextMesh>(); 
+            if(textMesh == null){
+                textMesh = _gameObject.AddComponent<TextMesh> ();
+            }
+            
+            textMesh.text = _text;
+            textMesh.characterSize = _textSize;
+            Color color;
+            ColorUtility.TryParseHtmlString(_textColor, out color);
+            textMesh.color = color;
+        } 
+    }
+    
+    public string GetText(){
+        return _text;
+    }
+    
+    public void SetTextSize(float textSize){
+        _textSize = textSize;
+        SetText(_text); 
+    }
+    
+    public float GetTextSize(){
+        return _textSize;
+    }
+    
+    public void SetTextColor(string textColor){
+        _textColor = textColor;
+        SetText(_text); 
+    }
+    
+    public string GetTextColor(){
+        return _textColor;
+    }
+    
+    
+    
     public void SetId(string id){
         _id = id;
     }
@@ -398,20 +485,29 @@ public class Entity
                 GameObject.Destroy (filter);
             }
             
-		    MeshRenderer renderer = _gameObject.GetComponent<MeshRenderer>(); 
-            if(renderer != null){
-                GameObject.Destroy (renderer);
+            TextMesh textMesh = _gameObject.GetComponent<TextMesh>(); 
+            if(textMesh == null){
+    		    MeshRenderer renderer = _gameObject.GetComponent<MeshRenderer>(); 
+                if(renderer != null){
+                    GameObject.Destroy (renderer);
+                }
             }
         }else{
+		    MeshRenderer renderer = _gameObject.GetComponent<MeshRenderer>(); 
+            if(renderer == null){
+                renderer = _gameObject.AddComponent<MeshRenderer> ();
+            }
+            
+            TextMesh textMesh = _gameObject.GetComponent<TextMesh>(); 
+            if(textMesh != null){
+                GameObject.Destroy (textMesh);
+            }
+            
             MeshFilter filter = _gameObject.GetComponent<MeshFilter>(); 
             if(filter == null){
                 filter = _gameObject.AddComponent<MeshFilter> ();
             }
             
-		    MeshRenderer renderer = _gameObject.GetComponent<MeshRenderer>(); 
-            if(renderer == null){
-                renderer = _gameObject.AddComponent<MeshRenderer> ();
-            }
             renderer.material = Navigator._materiel;
             Mesh mesh = await Navigator.LoadMesh(path);
             filter.mesh = mesh;
