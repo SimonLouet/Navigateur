@@ -8,7 +8,6 @@ using UnityEngine.Networking;
 using Jint;
 using System;
 using UnityEngine.UI;
-
 public class Navigator : MonoBehaviour
 {
     public static string _adress = "https://hanzilink.com/static/3d/main.json";
@@ -51,7 +50,8 @@ public class Navigator : MonoBehaviour
         
         _engine = new Engine();
         _engine.SetValue("log", new Action<object>(msg => Debug.Log(msg)));
-        
+        _engine.SetValue("Entity", Jint.Runtime.Interop.TypeReference.CreateTypeReference(_engine, typeof(Entity)));
+        _engine.SetValue("TransformWeb", Jint.Runtime.Interop.TypeReference.CreateTypeReference(_engine, typeof(TransformWeb)));
         _materiel = _materielNonStatic;
         
         var testpost = new Dictionary<string, string>();
@@ -68,7 +68,6 @@ public class Navigator : MonoBehaviour
             if(_interface.activeSelf){
                 _interface.SetActive(false);
             }else{
-                
                 _textFieldAdresse.text = _adress;
                 _interface.SetActive(true);
             }
