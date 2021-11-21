@@ -54,8 +54,10 @@ public class Navigator : MonoBehaviour
         
         _materiel = _materielNonStatic;
         
-        
-        RedirectPage("https://xn--instantan-cs-jeb.com/test");
+        var testpost = new Dictionary<string, string>();
+        testpost.Add("test","test1");
+        testpost.Add("test1","test2");
+        RedirectPagePost("https://xn--instantan-cs-jeb.com/test",testpost);
     } 
     
     
@@ -96,6 +98,23 @@ public class Navigator : MonoBehaviour
         
     }
     
+    public static async void RedirectPagePost(string uri, Dictionary<string, string> form)
+    {
+        Debug.Log("Debut du chargement du monde : " + uri);
+        
+        
+        for(int x = 0;x < _historicalId;x++){
+          _historicalPage.RemoveAt(_historicalPage.Count - 1);
+        }
+        _historicalId = 0;
+        _historicalPage.Add(uri);
+        LoadPage(uri,form);
+        
+        //
+        
+    }
+    
+    
     public static async void PreviousPage()
     {
        
@@ -134,6 +153,27 @@ public class Navigator : MonoBehaviour
         _textFieldAdresse.text = _adress;
         ClearPage();
         string requete = await GetRequest(uri);
+        new Page(requete);
+                
+        _engine.SetValue("Page", _page);
+      
+        for (int i = 0; i < _page.CountEntity(); i++){
+            _page.GetEntity(i).StartScript();
+        }
+        
+        Debug.Log("Fin du chargement du monde : " + uri);
+        
+    } 
+    
+    private static async void LoadPage(string uri,Dictionary<string, string> form)
+    {
+        Debug.Log("Debut du chargement du monde : " + uri);
+        _adress = uri;
+        _textFieldAdresse.text = _adress;
+        ClearPage();
+       
+        
+        string requete = await GetRequestPost(uri,form);
         new Page(requete);
                 
         _engine.SetValue("Page", _page);
@@ -214,5 +254,42 @@ public class Navigator : MonoBehaviour
             
         return "vide";
     }
+    
+    public static async Task<string> GetRequestPost (string uri,Dictionary<string, string> form) 
+    {
+        WWWForm wwwForm = new WWWForm();
+        
+        foreach(KeyValuePair<string, string> entry in form)
+        {
+            wwwForm.AddField( entry.Key, entry.Value );
+        }
+        
+        
+        UnityWebRequest webRequest = UnityWebRequest.Post(uri,wwwForm);
+        // Request and wait for the desired page.
+        webRequest.SendWebRequest();
+        string[] pages = uri.Split('/');
+        int page = pages.Length - 1;
+        while(webRequest.result == UnityWebRequest.Result.InProgress){
+            
+        }
+        
+        switch (webRequest.result)
+        {
+            case UnityWebRequest.Result.ConnectionError:
+            case UnityWebRequest.Result.DataProcessingError:
+                Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                break;
+            case UnityWebRequest.Result.ProtocolError:
+                Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                break;
+            case UnityWebRequest.Result.Success:
+                return webRequest.downloadHandler.text;
+                break;
+        }
+            
+        return "vide";
+    }
+    
     
 }

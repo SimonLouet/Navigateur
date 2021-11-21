@@ -261,101 +261,72 @@ public class Entity
         _transform.SetTransform(_gameObject.transform);
     }
     
-    public Entity(string json)
+    public Entity(string json):this()
     {
         var values =  JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
-        Navigator.GetPage().AddEntity(this);
-        SetGameObject(new GameObject("Name"));
         
         if(values.ContainsKey("tag")){
             SetTag(values["tag"].ToString());
-        }else{
-            SetTag("");
         }
         
         if(values.ContainsKey("id")){
             SetId(values["id"].ToString());
-        }else{
-            SetId("");
         }
         
         if(values.ContainsKey("type")){
             SetType(values["type"].ToString());
-        }else{
-            SetType("");
         }
         
         if(values.ContainsKey("href")){
             SetHref(values["href"].ToString());
-        }else{
-            SetHref("");
         }
         
         if(values.ContainsKey("text")){
             SetText(values["text"].ToString());
-        }else{
-            SetText("");
         }
         
         if(values.ContainsKey("textSize")){
             SetTextSize(Convert.ToSingle(values["textSize"]));
-        }else{
-            SetTextSize(1);
         }
         
         if(values.ContainsKey("textColor")){
             SetTextColor(values["textColor"].ToString());
-        }else{
-            SetTextColor("#ffffffff");
         }
         
         
         if(values.ContainsKey("mesh")){
             SetMesh(values["mesh"].ToString());
-        }else{
-            SetMesh("");
         }
         
         if(values.ContainsKey("meshCollider")){
             SetMeshCollider(values["meshCollider"].ToString());
-        }else{
-            SetMeshCollider("");
         }
         
         
         if(values.ContainsKey("script")){
             SetScript(values["script"].ToString());
-        }else{
-            SetScript("");
         }
         
         if(values.ContainsKey("onClick")){
             SetOnClick(values["onClick"].ToString());
-        }else{
-            SetOnClick("");
         }
         
         if(values.ContainsKey("onMouseOver")){
             SetOnMouseOver(values["onMouseOver"].ToString());
-        }else{
-            SetOnMouseOver("");
         }
         
         
         if(values.ContainsKey("onMouseOut")){
             SetOnMouseOut(values["onMouseOut"].ToString());
-        }else{
-            SetOnMouseOut("");
         }
         
         
         
         if(values.ContainsKey("transform")){
             SetTransform(new TransformWeb(values["transform"].ToString()));
-        }else{
-            SetTransform(new TransformWeb());
+            _transform.SetTransform(_gameObject.transform);
         }
-        _transform.SetTransform(_gameObject.transform);
+        
         
         if(values.ContainsKey("children")){
             List<object> children = new List<object>((IEnumerable<object>)values["children"]);
