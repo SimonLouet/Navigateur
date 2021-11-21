@@ -34,6 +34,12 @@ public class Page{
         
     }
     
+    public void OnUpdate(){
+        for(int x = 0;x < _entity.Count;x++){
+            _entity[x].OnUpdate();
+        }
+        
+    }
     
     //Header
     public Header GetHeader(){

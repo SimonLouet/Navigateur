@@ -228,6 +228,7 @@ public class Entity
     private string _onClick;
     private string _onMouseOver;
     private string _onMouseOut;
+    private string _onUpdate;
     
     
     private TransformWeb _transform;
@@ -256,6 +257,7 @@ public class Entity
         SetOnClick("");
         SetOnMouseOver("");
         SetOnMouseOut("");
+        SetOnUpdate("");
         
         SetTransform(new TransformWeb());
         _transform.SetTransform(_gameObject.transform);
@@ -318,6 +320,10 @@ public class Entity
         
         if(values.ContainsKey("onMouseOut")){
             SetOnMouseOut(values["onMouseOut"].ToString());
+        }
+        
+        if(values.ContainsKey("onUpdate")){
+            SetOnUpdate(values["onUpdate"].ToString());
         }
         
         
@@ -585,6 +591,25 @@ public class Entity
     public string GetOnClick(){
         return _onClick;
     }
+    
+    
+    
+    public void OnUpdate()
+    {   
+        
+        if(_onUpdate != ""){
+            Navigator._engine.Execute(_onUpdate);
+        }
+    } 
+    
+    public void SetOnUpdate(string onUpdate){
+        _onUpdate = onUpdate;
+    }
+    
+    public string GetOnUpdate(){
+        return _onUpdate;
+    }
+    
     
     
     
