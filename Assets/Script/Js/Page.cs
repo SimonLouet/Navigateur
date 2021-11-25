@@ -39,6 +39,13 @@ public class Page{
             _entity[x].OnUpdate(deltatime);
         }
         
+        if(Input.inputString != ""){
+            for(int x = 0;x < _entity.Count;x++){
+                _entity[x].OnKey(Input.inputString);
+            }
+        }
+        
+        
     }
     
     //Header

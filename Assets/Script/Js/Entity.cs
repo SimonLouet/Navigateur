@@ -231,6 +231,7 @@ public class Entity
     private string _onMouseOut;
     private string _onUpdate;
     private string _onChangeValue;
+    private string _onKey;
     
     
     private TransformWeb _transform;
@@ -250,6 +251,7 @@ public class Entity
         SetType("");
         SetHref("");
         SetText("");
+        SetTextSize(1);
         SetValue("");
         
         SetMesh("");
@@ -262,6 +264,7 @@ public class Entity
         SetOnMouseOut("");
         SetOnUpdate("");
         SetOnChangeValue("");
+        SetOnKey("");
         
         SetTransform(new TransformWeb());
         _transform.SetTransform(_gameObject.transform);
@@ -338,6 +341,10 @@ public class Entity
             SetOnChangeValue(values["onChangeValue"].ToString());
         }
         
+        
+        if(values.ContainsKey("onKey")){
+            SetOnKey(values["onKey"].ToString());
+        }
         
         
         if(values.ContainsKey("transform")){
@@ -682,7 +689,7 @@ public class Entity
     public void OnChangeValue()
     {   
         
-        if(_onChangeValue != ""){
+        if(_onChangeValue != "" && _onChangeValue != null){
             Navigator._engine.Execute(_onChangeValue);
         }
     } 
@@ -694,6 +701,25 @@ public class Entity
     public string GetOnChangeValue(){
         return _onChangeValue;
     }
+    
+    
+    public void OnKey(string key)
+    {   
+        
+        if(_onKey != ""){
+            Navigator._engine.SetValue("key", key);
+            Navigator._engine.Execute(_onKey);
+        }
+    } 
+    
+    public void SetOnKey(string onKey){
+        _onKey = onKey;
+    }
+    
+    public string GetOnKey(){
+        return _onKey;
+    }
+    
     
     
 

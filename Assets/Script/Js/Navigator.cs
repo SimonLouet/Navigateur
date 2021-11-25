@@ -78,6 +78,9 @@ public class Navigator : MonoBehaviour
                 _interface.SetActive(true);
             }
         }
+        
+        
+        
         _page.OnUpdate(Time.deltaTime);
     } 
     
