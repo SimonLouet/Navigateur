@@ -688,7 +688,6 @@ public class Entity
     
     public void OnChangeValue()
     {   
-        
         if(_onChangeValue != "" && _onChangeValue != null){
             Navigator._engine.Execute(_onChangeValue);
         }
@@ -697,7 +696,7 @@ public class Entity
     public void SetOnChangeValue(string onChangeValue){
         _onChangeValue = onChangeValue;
     }
-    
+
     public string GetOnChangeValue(){
         return _onChangeValue;
     }
@@ -719,9 +718,8 @@ public class Entity
     public string GetOnKey(){
         return _onKey;
     }
-    
-    
-    
+
+
 
     
     

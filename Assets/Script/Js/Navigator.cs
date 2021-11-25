@@ -78,9 +78,6 @@ public class Navigator : MonoBehaviour
                 _interface.SetActive(true);
             }
         }
-        
-        
-        
         _page.OnUpdate(Time.deltaTime);
     } 
     
@@ -290,7 +287,7 @@ public class Navigator : MonoBehaviour
         
         
         UnityWebRequest webRequest = UnityWebRequest.Post(uri,wwwForm);
-        // Request and wait for the desired page.
+       
         webRequest.SendWebRequest();
         string[] pages = uri.Split('/');
         int page = pages.Length - 1;
