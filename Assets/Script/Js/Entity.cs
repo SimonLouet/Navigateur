@@ -216,8 +216,9 @@ public class Entity
     private string _type;
     private string _href;
     private string _text;
-    private float _textSize;
+    private float  _textSize;
     private string _textColor;
+    private string _value;
     
     private string _mesh;
     private string _meshCollider;
@@ -229,6 +230,7 @@ public class Entity
     private string _onMouseOver;
     private string _onMouseOut;
     private string _onUpdate;
+    private string _onChangeValue;
     
     
     private TransformWeb _transform;
@@ -248,6 +250,7 @@ public class Entity
         SetType("");
         SetHref("");
         SetText("");
+        SetValue("");
         
         SetMesh("");
         SetMeshCollider("");
@@ -258,6 +261,7 @@ public class Entity
         SetOnMouseOver("");
         SetOnMouseOut("");
         SetOnUpdate("");
+        SetOnChangeValue("");
         
         SetTransform(new TransformWeb());
         _transform.SetTransform(_gameObject.transform);
@@ -295,6 +299,10 @@ public class Entity
             SetTextColor(values["textColor"].ToString());
         }
         
+        if(values.ContainsKey("value")){
+            SetValue(values["value"].ToString());
+        }
+        
         
         if(values.ContainsKey("mesh")){
             SetMesh(values["mesh"].ToString());
@@ -324,6 +332,10 @@ public class Entity
         
         if(values.ContainsKey("onUpdate")){
             SetOnUpdate(values["onUpdate"].ToString());
+        }
+        
+        if(values.ContainsKey("onChangeValue")){
+            SetOnChangeValue(values["onChangeValue"].ToString());
         }
         
         
@@ -431,6 +443,17 @@ public class Entity
     
     public string GetTextColor(){
         return _textColor;
+    }
+    
+    public void SetValue(string value){
+        if(value != _value){
+            _value = value;
+            OnChangeValue();
+        }
+    }
+    
+    public string GetValue(){
+        return _value;
     }
     
     
@@ -594,10 +617,11 @@ public class Entity
     
     
     
-    public void OnUpdate()
+    public void OnUpdate(float deltatime)
     {   
         
         if(_onUpdate != ""){
+            Navigator._engine.SetValue("deltaTime", deltatime);
             Navigator._engine.Execute(_onUpdate);
         }
     } 
@@ -655,7 +679,21 @@ public class Entity
         return _onMouseOut;
     }
     
+    public void OnChangeValue()
+    {   
+        
+        if(_onChangeValue != ""){
+            Navigator._engine.Execute(_onChangeValue);
+        }
+    } 
     
+    public void SetOnChangeValue(string onChangeValue){
+        _onChangeValue = onChangeValue;
+    }
+    
+    public string GetOnChangeValue(){
+        return _onChangeValue;
+    }
     
     
 

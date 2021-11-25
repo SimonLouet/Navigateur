@@ -34,9 +34,9 @@ public class Page{
         
     }
     
-    public void OnUpdate(){
+    public void OnUpdate(float deltatime){
         for(int x = 0;x < _entity.Count;x++){
-            _entity[x].OnUpdate();
+            _entity[x].OnUpdate(deltatime);
         }
         
     }
