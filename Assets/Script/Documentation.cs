@@ -61,7 +61,7 @@ public class Documentation : MonoBehaviour
         try
         {
             //Pass the filepath and filename to the StreamWriter Constructor
-            StreamWriter sw = new StreamWriter("C:/Users/chloe/Documents/doc/" + type.Name + ".html");
+            StreamWriter sw = new StreamWriter("C:/Users/chloe/My project/DocJs/" + type.Name + ".html");
             //Write a line of text
             sw.WriteLine(html);
             //Close the file

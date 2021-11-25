@@ -8,6 +8,8 @@ using UnityEngine.Networking;
 using Jint;
 using System;
 using UnityEngine.UI;
+using Newtonsoft.Json;
+
 public class Navigator : MonoBehaviour
 {
     public static string _adress = "https://hanzilink.com/static/3d/main.json";
@@ -50,14 +52,18 @@ public class Navigator : MonoBehaviour
         
         _engine = new Engine();
         _engine.SetValue("log", new Action<object>(msg => Debug.Log(msg)));
+        _engine.SetValue("RedirectPage", new Action<string>(RedirectPage));
+        _engine.SetValue("GetRequest", new Func<string,string>(GetRequest));
+        _engine.SetValue("RedirectPagePost", new Action<string,string>(RedirectPagePost));
+        _engine.SetValue("GetRequestPost", new Func<string,string,string>(GetRequestPost));
+        
+        
         _engine.SetValue("Entity", Jint.Runtime.Interop.TypeReference.CreateTypeReference(_engine, typeof(Entity)));
         _engine.SetValue("TransformWeb", Jint.Runtime.Interop.TypeReference.CreateTypeReference(_engine, typeof(TransformWeb)));
         _materiel = _materielNonStatic;
         
-        var testpost = new Dictionary<string, string>();
-        testpost.Add("test","test1");
-        testpost.Add("test1","test2");
-        RedirectPagePost("https://xn--instantan-cs-jeb.com/test",testpost);
+        
+        RedirectPagePost("https://xn--instantan-cs-jeb.com/test","{ \"name\": \"Chris\", \"age\": \"38\" }");
     } 
     
     
@@ -72,7 +78,7 @@ public class Navigator : MonoBehaviour
                 _interface.SetActive(true);
             }
         }
-        _page.OnUpdate();
+        _page.OnUpdate(Time.deltaTime);
     } 
     
     
@@ -93,6 +99,14 @@ public class Navigator : MonoBehaviour
         _historicalId = 0;
         _historicalPage.Add(uri);
         LoadPage(uri);
+        
+        //
+        
+    }
+    
+    public static async void RedirectPagePost(string uri, string json)
+    {
+        RedirectPagePost(uri,JsonConvert.DeserializeObject<Dictionary<string, string>>(json));
         
         //
         
@@ -152,7 +166,7 @@ public class Navigator : MonoBehaviour
         _adress = uri;
         _textFieldAdresse.text = _adress;
         ClearPage();
-        string requete = await GetRequest(uri);
+        string requete = GetRequest(uri);
         new Page(requete);
                 
         _engine.SetValue("Page", _page);
@@ -173,7 +187,7 @@ public class Navigator : MonoBehaviour
         ClearPage();
        
         
-        string requete = await GetRequestPost(uri,form);
+        string requete = GetRequestPost(uri,form);
         new Page(requete);
                 
         _engine.SetValue("Page", _page);
@@ -218,7 +232,7 @@ public class Navigator : MonoBehaviour
         }
         else
         {
-            string data = await GetRequest(path);
+            string data = GetRequest(path);
             Mesh mesh = FileReader.ReadObjFile (data);
             
             _meshCache.Add(path, mesh);
@@ -227,7 +241,7 @@ public class Navigator : MonoBehaviour
     }
     
     
-    public static async Task<string> GetRequest (string uri) 
+    public static string GetRequest (string uri) 
     {
         UnityWebRequest webRequest = UnityWebRequest.Get(uri);
         // Request and wait for the desired page.
@@ -255,7 +269,14 @@ public class Navigator : MonoBehaviour
         return "vide";
     }
     
-    public static async Task<string> GetRequestPost (string uri,Dictionary<string, string> form) 
+    
+    public static string GetRequestPost (string uri,string json)
+    {
+        return GetRequestPost(uri,JsonConvert.DeserializeObject<Dictionary<string, string>>(json));
+    }
+    
+    
+    public static string GetRequestPost (string uri,Dictionary<string, string> form) 
     {
         WWWForm wwwForm = new WWWForm();
         
@@ -290,6 +311,5 @@ public class Navigator : MonoBehaviour
             
         return "vide";
     }
-    
     
 }
