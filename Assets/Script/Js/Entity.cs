@@ -384,7 +384,10 @@ public class Entity
     public void StartScript()
     {
         if(_script != ""){
+            Navigator._engine.SetValue("entityParent", this);
             Navigator._engine.Execute(_script);
+            
+            
         }
     }
     
@@ -650,7 +653,9 @@ public class Entity
         }
         
         if(_onClick != ""){
+            Navigator._engine.SetValue("entityParent", this);
             Navigator._engine.Execute(_onClick);
+            
         }
     } 
     
@@ -669,7 +674,9 @@ public class Entity
         
         if(_onUpdate != ""){
             Navigator._engine.SetValue("deltaTime", deltatime);
+            Navigator._engine.SetValue("entityParent", this);
             Navigator._engine.Execute(_onUpdate);
+            
         }
     } 
     
@@ -692,7 +699,9 @@ public class Entity
             
         Navigator.AfficherLien(_href);
         if(_onMouseOver != ""){
+            Navigator._engine.SetValue("entityParent", this);
             Navigator._engine.Execute(_onMouseOver);
+            
         }
         
     } 
@@ -713,7 +722,9 @@ public class Entity
     {   
         Navigator.AfficherLien("");
         if(_onMouseOut != ""){
+            Navigator._engine.SetValue("entityParent", this);
             Navigator._engine.Execute(_onMouseOut);
+            
         }
         
     } 
@@ -729,7 +740,9 @@ public class Entity
     public void OnChangeValue()
     {   
         if(_onChangeValue != "" && _onChangeValue != null){
+            Navigator._engine.SetValue("entityParent", this);
             Navigator._engine.Execute(_onChangeValue);
+            
         }
     } 
     
@@ -749,8 +762,10 @@ public class Entity
     {   
         
         if(_onKey != ""){
+            Navigator._engine.SetValue("entityParent", this);
             Navigator._engine.SetValue("key", key);
             Navigator._engine.Execute(_onKey);
+            
         }
     } 
     
@@ -768,7 +783,9 @@ public class Entity
     {   
         
         if(_onFocus != ""){
+            Navigator._engine.SetValue("entityParent", this);
             Navigator._engine.Execute(_onFocus);
+            
         }
     } 
     
@@ -787,7 +804,9 @@ public class Entity
     {   
         
         if(_onBlur != ""){
+            Navigator._engine.SetValue("entityParent", this);
             Navigator._engine.Execute(_onBlur);
+            
         }
     } 
     

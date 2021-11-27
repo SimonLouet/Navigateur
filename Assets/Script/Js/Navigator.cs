@@ -63,7 +63,7 @@ public class Navigator : MonoBehaviour
         _materiel = _materielNonStatic;
         
         
-        RedirectPagePost("https://xn--instantan-cs-jeb.com/test","{ \"name\": \"Chris\", \"age\": \"38\" }");
+        RedirectPage("https://xn--instantan-cs-jeb.com/test");
     } 
     
     
@@ -91,7 +91,6 @@ public class Navigator : MonoBehaviour
     
     public static async void RedirectPage(string uri)
     {
-        Debug.Log("Debut du chargement du monde : " + uri);
         
         for(int x = 0;x < _historicalId;x++){
           _historicalPage.RemoveAt(_historicalPage.Count - 1);
@@ -114,7 +113,6 @@ public class Navigator : MonoBehaviour
     
     public static async void RedirectPagePost(string uri, Dictionary<string, string> form)
     {
-        Debug.Log("Debut du chargement du monde : " + uri);
         
         
         for(int x = 0;x < _historicalId;x++){
@@ -222,8 +220,14 @@ public class Navigator : MonoBehaviour
     
     
     public static async Task<Mesh> LoadMesh (string path) {
+    
         if(path == ""){
             return null;
+        }else if(path.Substring(0, 6) == "local:"){
+            
+        Debug.Log("Mesh/" + path.Substring(6));
+        
+            return Resources.Load<Mesh>("Mesh/" + path.Substring(6));
         }
         Mesh temp;
         if(_meshCache.TryGetValue(path, out temp))
@@ -233,10 +237,13 @@ public class Navigator : MonoBehaviour
         else
         {
             string data = GetRequest(path);
-            Mesh mesh = FileReader.ReadObjFile (data);
-            
-            _meshCache.Add(path, mesh);
-    		return mesh;
+            if(data.Substring(0, 5) != "Error"){
+                Mesh mesh = FileReader.ReadObjFile (data);
+                
+                _meshCache.Add(path, mesh);
+        		return mesh;
+            }
+            return null;
         }
     }
     
@@ -257,9 +264,11 @@ public class Navigator : MonoBehaviour
             case UnityWebRequest.Result.ConnectionError:
             case UnityWebRequest.Result.DataProcessingError:
                 Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                return "Error : " + webRequest.error;
                 break;
             case UnityWebRequest.Result.ProtocolError:
                 Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                return "Error : " + webRequest.error;
                 break;
             case UnityWebRequest.Result.Success:
                 return webRequest.downloadHandler.text;
@@ -300,9 +309,11 @@ public class Navigator : MonoBehaviour
             case UnityWebRequest.Result.ConnectionError:
             case UnityWebRequest.Result.DataProcessingError:
                 Debug.LogError(pages[page] + ": Error: " + webRequest.error);
+                return "Error : " + webRequest.error;
                 break;
             case UnityWebRequest.Result.ProtocolError:
                 Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
+                return "Error : " + webRequest.error;
                 break;
             case UnityWebRequest.Result.Success:
                 return webRequest.downloadHandler.text;
