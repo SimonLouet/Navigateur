@@ -219,6 +219,7 @@ public class Entity
     private float  _textSize;
     private string _textColor;
     private string _value;
+    private bool _focus;
     
     private string _mesh;
     private string _meshCollider;
@@ -232,6 +233,8 @@ public class Entity
     private string _onUpdate;
     private string _onChangeValue;
     private string _onKey;
+    private string _onFocus;
+    private string _onBlur;
     
     
     private TransformWeb _transform;
@@ -253,6 +256,7 @@ public class Entity
         SetText("");
         SetTextSize(1);
         SetValue("");
+        SetFocus(false);
         
         SetMesh("");
         SetMeshCollider("");
@@ -265,6 +269,8 @@ public class Entity
         SetOnUpdate("");
         SetOnChangeValue("");
         SetOnKey("");
+        SetOnFocus("");
+        SetOnBlur("");
         
         SetTransform(new TransformWeb());
         _transform.SetTransform(_gameObject.transform);
@@ -346,11 +352,21 @@ public class Entity
             SetOnKey(values["onKey"].ToString());
         }
         
+        if(values.ContainsKey("onFocus")){
+            SetOnFocus(values["onFocus"].ToString());
+        }
+        
+        if(values.ContainsKey("onBlur")){
+            SetOnBlur(values["onBlur"].ToString());
+        }
+        
         
         if(values.ContainsKey("transform")){
             SetTransform(new TransformWeb(values["transform"].ToString()));
             _transform.SetTransform(_gameObject.transform);
         }
+        
+        
         
         
         if(values.ContainsKey("children")){
@@ -481,6 +497,30 @@ public class Entity
     public string GetType(){
         return _type;
     }
+    
+    
+    public void SetFocus(bool focus){
+        
+        if(focus){
+            if(!_focus){
+                _focus = true;
+                Navigator.GetPage().SetFocusEntity(this);
+                OnFocus();
+            }
+        }else{
+            if(_focus){
+                _focus = false;
+                Navigator.GetPage().SetFocusEntity(null);
+                OnBlur();
+            }
+        }
+    }
+    
+    public bool GetFocus(){
+        return _focus;
+    }
+    
+    
     
     
     public async void SetMesh(string path)
@@ -702,6 +742,9 @@ public class Entity
     }
     
     
+    
+    
+    
     public void OnKey(string key)
     {   
         
@@ -718,6 +761,49 @@ public class Entity
     public string GetOnKey(){
         return _onKey;
     }
+    
+    
+    
+    public void OnFocus()
+    {   
+        
+        if(_onFocus != ""){
+            Navigator._engine.Execute(_onFocus);
+        }
+    } 
+    
+    public void SetOnFocus(string onFocus){
+        _onFocus = onFocus;
+    }
+    
+    public string GetOnFocus(){
+        return _onFocus;
+    }
+    
+    
+    
+    
+    public void OnBlur()
+    {   
+        
+        if(_onBlur != ""){
+            Navigator._engine.Execute(_onBlur);
+        }
+    } 
+    
+    public void SetOnBlur(string onBlur){
+        _onBlur = onBlur;
+    }
+    
+    public string GetOnBlur(){
+        return _onBlur;
+    }
+    
+    
+    
+    
+    
+    
 
 
 

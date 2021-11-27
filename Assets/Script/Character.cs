@@ -78,6 +78,7 @@ public class Character : MonoBehaviour
                     entityComponent = _entityOver.GetComponent<EntityComponent>();
                     if(entityComponent != null){
                         entityComponent._entity.OnClick();
+                        Navigator._page.SetFocusEntity(entityComponent._entity);
                     }
                 }
             }
@@ -90,6 +91,13 @@ public class Character : MonoBehaviour
                     }
                     _entityOver = null;
                 }
+                
+                if (Input.GetMouseButtonDown(0)){
+                    if(Navigator._page.GetFocusEntity() != null){
+                        Navigator._page.SetFocusEntity(null);
+                    }
+                }
+                
                 
                 
             }

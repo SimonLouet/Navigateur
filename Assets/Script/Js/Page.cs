@@ -10,6 +10,7 @@ public class Page{
 
     private Header _header;
     private List<Entity> _entity = new List<Entity>();
+    private Entity _focusEntity;
     
     public Page(){
         SetHeader(new Header());
@@ -56,6 +57,30 @@ public class Page{
     public void SetHeader(Header header){
         _header = header;
     }
+    
+    public Entity GetFocusEntity(){
+        return _focusEntity;
+    }
+    
+    public void SetFocusEntity(Entity entity){
+        if(entity != null){
+            if(!entity.GetFocus()){
+                if(_focusEntity != null){
+                    _focusEntity.SetFocus(false);
+                }
+                entity.SetFocus(true);
+                _focusEntity = entity;
+            }
+        }else{
+            if(_focusEntity != null){
+                _focusEntity.SetFocus(false);
+            }
+            _focusEntity = null;
+        }
+        
+    }
+    
+    
     
     public Entity GetEntity(int id){
         return _entity[id];
