@@ -224,9 +224,6 @@ public class Navigator : MonoBehaviour
         if(path == ""){
             return null;
         }else if(path.Substring(0, 6) == "local:"){
-            
-        Debug.Log("Mesh/" + path.Substring(6));
-        
             return Resources.Load<Mesh>("Mesh/" + path.Substring(6));
         }
         Mesh temp;

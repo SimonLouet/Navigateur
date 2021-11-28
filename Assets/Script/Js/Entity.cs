@@ -221,6 +221,12 @@ public class Entity
     private string _value;
     private bool _focus;
     
+    private string _lightType;
+    private string _lightColor;
+    private float _lightRange;
+    private float _lightAngle;
+    private float _lightIntensity;
+    
     private string _mesh;
     private string _meshCollider;
     private string _texture;
@@ -257,6 +263,12 @@ public class Entity
         SetTextSize(1);
         SetValue("");
         SetFocus(false);
+        
+        SetLightType("");
+        SetLightColor("#ffffff");
+        SetLightRange(10);
+        SetLightAngle(30);
+        SetLightIntensity(1);
         
         SetMesh("");
         SetMeshCollider("");
@@ -312,6 +324,28 @@ public class Entity
             SetValue(values["value"].ToString());
         }
         
+        if(values.ContainsKey("lightType")){
+            SetLightType(values["lightType"].ToString());
+        }
+        
+        if(values.ContainsKey("lightColor")){
+            SetLightColor(values["lightColor"].ToString());
+        }
+        
+        if(values.ContainsKey("lightRange")){
+            SetLightRange(Convert.ToSingle(values["lightRange"]));
+        }
+        
+        if(values.ContainsKey("lightAngle")){
+            SetLightAngle(Convert.ToSingle(values["lightAngle"]));
+        }
+        
+        if(values.ContainsKey("lightIntensity")){
+            SetLightIntensity(Convert.ToSingle(values["lightIntensity"]));
+        }
+        
+        
+        
         
         if(values.ContainsKey("mesh")){
             SetMesh(values["mesh"].ToString());
@@ -361,6 +395,14 @@ public class Entity
         }
         
         
+        if(values.ContainsKey("children")){
+            List<object> children = new List<object>((IEnumerable<object>)values["children"]);
+            for(int x = 0 ;x < children.Count;x++){
+                AddChildren(new Entity(children[x].ToString()));
+            }
+        }
+        
+        
         if(values.ContainsKey("transform")){
             SetTransform(new TransformWeb(values["transform"].ToString()));
             _transform.SetTransform(_gameObject.transform);
@@ -369,12 +411,7 @@ public class Entity
         
         
         
-        if(values.ContainsKey("children")){
-            List<object> children = new List<object>((IEnumerable<object>)values["children"]);
-            for(int x = 0 ;x < children.Count;x++){
-                AddChildren(new Entity(children[x].ToString()));
-            }
-        }
+        
         
         
     }
@@ -481,6 +518,123 @@ public class Entity
     public string GetValue(){
         return _value;
     }
+    
+    
+        
+        
+    
+    
+    public void SetLightType(string lightType){
+        _lightType = lightType;
+        if (_lightType == ""){
+            Light light = _gameObject.GetComponent<Light>(); 
+            if(light != null){
+                GameObject.Destroy (light);
+            }
+        }else{
+		    Light light = _gameObject.GetComponent<Light>(); 
+            if(light == null){
+                light = _gameObject.AddComponent<Light> ();
+            }
+            
+            if(_lightType == "spot"){
+                light.type = LightType.Spot;
+                
+                light.spotAngle = _lightAngle;
+                Color color;
+                ColorUtility.TryParseHtmlString(_lightColor, out color);
+                light.color = color;
+                light.intensity = _lightIntensity;
+                light.range = _lightRange;
+            }else if (_lightType == "point"){
+                light.type = LightType.Point;
+                
+                Color color;
+                ColorUtility.TryParseHtmlString(_lightColor, out color);
+                light.color = color;
+                light.intensity = _lightIntensity;
+                light.range = _lightRange;
+            }else{
+                light.type = LightType.Directional;
+                
+                Color color;
+                ColorUtility.TryParseHtmlString(_lightColor, out color);
+                light.color = color;
+                light.intensity = _lightIntensity;
+            }
+        } 
+    }
+    
+    public string GetLightType(){
+        return _lightType;
+    }
+    
+    
+    public void SetLightColor(string lightColor){
+        _lightColor = lightColor;
+        Light light = _gameObject.GetComponent<Light>(); 
+        if(light != null){
+            Color color;
+            ColorUtility.TryParseHtmlString(_lightColor, out color);
+            light.color = color;
+        }
+            
+    }
+    
+    public string GetLightColor(){
+        return _lightColor;
+    }
+    
+    
+    public void SetLightRange(float lightRange){
+        _lightRange = lightRange;
+        
+        Light light = _gameObject.GetComponent<Light>(); 
+        if(light != null){
+            light.range = _lightRange;
+        }
+    }
+    
+    public float GetLightRange(){
+        return _lightRange;
+    }
+    
+    
+    public void SetLightAngle(float lightAngle){
+        _lightAngle = lightAngle;
+        
+        Light light = _gameObject.GetComponent<Light>(); 
+        if(light != null){
+            light.spotAngle = _lightAngle;
+        }
+    }
+    
+    public float GetLightAngle(){
+        return _lightAngle;
+    }
+    
+    
+    public void SetLightIntensity(float lightIntensity){
+        _lightIntensity = lightIntensity;
+        
+        Light light = _gameObject.GetComponent<Light>(); 
+        if(light != null){
+            light.intensity = _lightIntensity;
+        }
+    }
+    
+    public float GetLightIntensity(){
+        return _lightIntensity;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
