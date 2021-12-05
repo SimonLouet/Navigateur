@@ -46,7 +46,9 @@ public class FileReader {
 	}
 
 	public static Mesh ReadObjFile (string data) {
-
+        float maxX = 0;
+        float maxXline = 0;
+        float x = 0;
 		MeshFile obj = new MeshFile ();
 
 		obj.usemtl = new List<string> ();
@@ -74,6 +76,10 @@ public class FileReader {
 				//obj.f.Add (new List<int[]> ());
 				break;
 			case ("v"):
+                if(float.Parse (token [1].Replace('.', ',')) > maxX){
+                    maxX = float.Parse (token [1].Replace('.', ','));
+                    maxXline = x;
+                }
 				obj.v.Add (new Vector3 (
 					float.Parse (token [1].Replace('.', ',')),
 					float.Parse (token [2].Replace('.', ',')),
@@ -118,8 +124,9 @@ public class FileReader {
                 
 				break;
 			}
+            x += 1;
 		}
-        
+        Debug.Log("ligne : " + maxXline + "  value : " + maxX);
         List<int[]> triplets = new List<int[]> ();
   		List<int> submeshes = new List<int> ();
   
@@ -141,8 +148,9 @@ public class FileReader {
   				uvs [i] = obj.vt [triplets [i] [1] - 1];
   		}
   
-          Mesh mesh = new Mesh ();
-          
+        Mesh mesh = new Mesh ();
+        mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+        
   		mesh.name = obj.o;
   		mesh.vertices = vertices;
   		mesh.normals = normals;
@@ -160,7 +168,6 @@ public class FileReader {
   		}
   
   		mesh.RecalculateBounds ();
-  		mesh.Optimize ();
             
 		return mesh;
 	}

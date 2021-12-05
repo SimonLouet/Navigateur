@@ -1,0 +1,607 @@
+{
+"header":{
+   "user":{
+       "speed":1,
+          "transform":{
+"posY":5
+}
+}
+},
+"scene":[
+{
+    "transform":{
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "scaleX":21.5,
+        "scaleY":0.1,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":-7,
+        "posZ":-7,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "posY":0.18,
+        "scaleX":7.5,
+        "scaleZ":7.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "rotY":317.463,
+    },
+    "type":"3DModel",
+    "onUpdate":"entityParent.GetTransform().SetRotY(entityParent.GetTransform().GetRotY() + (deltaTime * 15));",
+    "children":[
+{
+    "transform":{
+        "posY":0.673,
+    },
+    "type":"3DModel",
+    "mesh":"https://xn--instantan-cs-jeb.com/obj/mercedes.obj",
+    "meshCollider":"https://xn--instantan-cs-jeb.com/obj/mercedes.obj",
+}   
+]
+},{
+    "transform":{
+        "posX":-3.75,
+        "posY":0.916,
+        "posZ":3.75,
+        "rotX":350.7582,
+        "rotY":138.2663,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#72B2FFFF",
+},{
+    "transform":{
+        "posX":-3.75,
+        "posY":0.916,
+        "posZ":-3.75,
+        "rotX":350.7582,
+        "rotY":35.12347,
+        "rotZ":-6.920015E-06,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#FFA272FF",
+},{
+    "transform":{
+        "posX":3.75,
+        "posY":0.916,
+        "posZ":-3.75,
+        "rotX":350.7582,
+        "rotY":310.1657,
+        "rotZ":1.016377E-05,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#72B2FFFF",
+},{
+    "transform":{
+        "posX":3.75,
+        "posY":0.916,
+        "posZ":3.75,
+        "rotX":350.7582,
+        "rotY":211.3494,
+        "rotZ":-4.325009E-06,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#FFA272FF",
+}   
+]
+},{
+    "transform":{
+        "posX":-7,
+        "posZ":7,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "posY":0.18,
+        "scaleX":7.5,
+        "scaleZ":7.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "rotY":317.463,
+    },
+    "type":"3DModel",
+    "onUpdate":"entityParent.GetTransform().SetRotY(entityParent.GetTransform().GetRotY() + (deltaTime * 15));",
+    "children":[
+{
+    "transform":{
+        "posY":1.278,
+    },
+    "type":"3DModel",
+    "mesh":"https://xn--instantan-cs-jeb.com/obj/mercedes.obj",
+    "meshCollider":"https://xn--instantan-cs-jeb.com/obj/mercedes.obj",
+}   
+]
+},{
+    "transform":{
+        "posX":-3.75,
+        "posY":0.916,
+        "posZ":3.75,
+        "rotX":350.7582,
+        "rotY":138.2663,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#72B2FFFF",
+},{
+    "transform":{
+        "posX":-3.75,
+        "posY":0.916,
+        "posZ":-3.75,
+        "rotX":350.7582,
+        "rotY":35.12347,
+        "rotZ":-6.920015E-06,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#FFA272FF",
+},{
+    "transform":{
+        "posX":3.75,
+        "posY":0.916,
+        "posZ":-3.75,
+        "rotX":350.7582,
+        "rotY":310.1657,
+        "rotZ":1.016377E-05,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#72B2FFFF",
+},{
+    "transform":{
+        "posX":3.75,
+        "posY":0.916,
+        "posZ":3.75,
+        "rotX":350.7582,
+        "rotY":211.3494,
+        "rotZ":-4.325009E-06,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#FFA272FF",
+}   
+]
+},{
+    "transform":{
+        "posX":7,
+        "posZ":7,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "posY":0.18,
+        "scaleX":7.5,
+        "scaleZ":7.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "rotY":317.463,
+    },
+    "type":"3DModel",
+    "onUpdate":"entityParent.GetTransform().SetRotY(entityParent.GetTransform().GetRotY() + (deltaTime * 15));",
+    "children":[
+{
+    "transform":{
+        "posY":0.673,
+    },
+    "type":"3DModel",
+    "mesh":"https://xn--instantan-cs-jeb.com/obj/mercedes.obj",
+    "meshCollider":"https://xn--instantan-cs-jeb.com/obj/mercedes.obj",
+}   
+]
+},{
+    "transform":{
+        "posX":-3.75,
+        "posY":0.916,
+        "posZ":3.75,
+        "rotX":350.7582,
+        "rotY":138.2663,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#72B2FFFF",
+},{
+    "transform":{
+        "posX":-3.75,
+        "posY":0.916,
+        "posZ":-3.75,
+        "rotX":350.7582,
+        "rotY":35.12347,
+        "rotZ":-6.920015E-06,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#FFA272FF",
+},{
+    "transform":{
+        "posX":3.75,
+        "posY":0.916,
+        "posZ":-3.75,
+        "rotX":350.7582,
+        "rotY":310.1657,
+        "rotZ":1.016377E-05,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#72B2FFFF",
+},{
+    "transform":{
+        "posX":3.75,
+        "posY":0.916,
+        "posZ":3.75,
+        "rotX":350.7582,
+        "rotY":211.3494,
+        "rotZ":-4.325009E-06,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#FFA272FF",
+}   
+]
+},{
+    "transform":{
+        "posX":7,
+        "posZ":-7,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "posY":0.18,
+        "scaleX":7.5,
+        "scaleZ":7.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "rotY":317.463,
+    },
+    "type":"3DModel",
+    "onUpdate":"entityParent.GetTransform().SetRotY(entityParent.GetTransform().GetRotY() + (deltaTime * 15));",
+    "children":[
+{
+    "transform":{
+        "posY":0.673,
+    },
+    "type":"3DModel",
+    "mesh":"https://xn--instantan-cs-jeb.com/obj/mercedes.obj",
+    "meshCollider":"https://xn--instantan-cs-jeb.com/obj/mercedes.obj",
+}   
+]
+},{
+    "transform":{
+        "posX":-3.75,
+        "posY":0.916,
+        "posZ":3.75,
+        "rotX":350.7582,
+        "rotY":138.2663,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#72B2FFFF",
+},{
+    "transform":{
+        "posX":-3.75,
+        "posY":0.916,
+        "posZ":-3.75,
+        "rotX":350.7582,
+        "rotY":35.12347,
+        "rotZ":-6.920015E-06,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#FFA272FF",
+},{
+    "transform":{
+        "posX":3.75,
+        "posY":0.916,
+        "posZ":-3.75,
+        "rotX":350.7582,
+        "rotY":310.1657,
+        "rotZ":1.016377E-05,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#72B2FFFF",
+},{
+    "transform":{
+        "posX":3.75,
+        "posY":0.916,
+        "posZ":3.75,
+        "rotX":350.7582,
+        "rotY":211.3494,
+        "rotZ":-4.325009E-06,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightAngle":"53",
+    "lightIntensity":"3",
+    "lightRange":"14,6",
+    "lightColor":"#FFA272FF",
+}   
+]
+},{
+    "transform":{
+        "posY":7,
+        "scaleX":21.5,
+        "scaleY":0.1,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posY":6.71,
+        "scaleX":0.450165,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":2,
+        "posY":6.71,
+        "scaleX":0.450165,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":4,
+        "posY":6.71,
+        "scaleX":0.450165,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":6,
+        "posY":6.71,
+        "scaleX":0.450165,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":8,
+        "posY":6.71,
+        "scaleX":0.450165,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":10,
+        "posY":6.71,
+        "scaleX":0.450165,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":-2,
+        "posY":6.71,
+        "scaleX":0.450165,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":-4,
+        "posY":6.71,
+        "scaleX":0.450165,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":-6,
+        "posY":6.71,
+        "scaleX":0.450165,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":-8,
+        "posY":6.71,
+        "scaleX":0.450165,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":-10,
+        "posY":6.71,
+        "scaleX":0.450165,
+        "scaleZ":21.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posY":3.25,
+        "posZ":-10.75,
+        "scaleX":21.5,
+        "scaleY":10,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posY":3.25,
+        "posZ":10.75,
+        "scaleX":21.5,
+        "scaleY":10,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":10.75,
+        "posY":3.25,
+        "rotY":90,
+        "scaleX":21.5,
+        "scaleY":10,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":-10.75,
+        "posY":3.25,
+        "posZ":2.562999E-06,
+        "rotY":90,
+        "scaleX":21.5,
+        "scaleY":10,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posY":3.25,
+        "posZ":-10.75,
+        "scaleY":10,
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":-10.75,
+        "posY":3.25,
+        "posZ":2.562999E-06,
+        "rotY":90,
+        "scaleY":10,
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posY":3.25,
+        "posZ":10.75,
+        "scaleY":10,
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":10.75,
+        "posY":3.25,
+        "rotY":90,
+        "scaleY":10,
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+}   
+]
+}
+]
+}
+

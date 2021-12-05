@@ -395,13 +395,13 @@ public class Entity
         }
         
         
+        
         if(values.ContainsKey("children")){
             List<object> children = new List<object>((IEnumerable<object>)values["children"]);
             for(int x = 0 ;x < children.Count;x++){
                 AddChildren(new Entity(children[x].ToString()));
             }
         }
-        
         
         if(values.ContainsKey("transform")){
             SetTransform(new TransformWeb(values["transform"].ToString()));
