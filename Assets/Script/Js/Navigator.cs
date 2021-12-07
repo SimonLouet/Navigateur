@@ -9,6 +9,18 @@ using Jint;
 using System;
 using UnityEngine.UI;
 using Newtonsoft.Json;
+using System.Runtime.CompilerServices; 
+using System.Threading.Tasks;
+
+public static class ExtensionMethods
+{
+    public static TaskAwaiter GetAwaiter(this AsyncOperation asyncOp)
+    {
+        var tcs = new TaskCompletionSource<object>();
+        asyncOp.completed += obj => { tcs.SetResult(null); };
+        return ((Task)tcs.Task).GetAwaiter();
+    }
+}
 
 public class Navigator : MonoBehaviour
 {
@@ -25,6 +37,7 @@ public class Navigator : MonoBehaviour
     public static Text _textLien;
     
     public static Dictionary<string, Mesh> _meshCache = new Dictionary<string, Mesh>();
+    public static Dictionary<string, Texture2D> _textureCache = new Dictionary<string, Texture2D>();
     
     public static Engine _engine;
     
@@ -53,9 +66,9 @@ public class Navigator : MonoBehaviour
         _engine = new Engine();
         _engine.SetValue("log", new Action<object>(msg => Debug.Log(msg)));
         _engine.SetValue("RedirectPage", new Action<string>(RedirectPage));
-        _engine.SetValue("GetRequest", new Func<string,string>(GetRequest));
+        //_engine.SetValue("GetRequest", new Func<string,string>(GetRequest));
         _engine.SetValue("RedirectPagePost", new Action<string,string>(RedirectPagePost));
-        _engine.SetValue("GetRequestPost", new Func<string,string,string>(GetRequestPost));
+        //_engine.SetValue("GetRequestPost", new Func<string,string,string>(GetRequestPost));
         
         
         _engine.SetValue("Entity", Jint.Runtime.Interop.TypeReference.CreateTypeReference(_engine, typeof(Entity)));
@@ -78,7 +91,10 @@ public class Navigator : MonoBehaviour
                 _interface.SetActive(true);
             }
         }
-        _page.OnUpdate(Time.deltaTime);
+        if(_page != null){
+            _page.OnUpdate(Time.deltaTime);
+        
+        }
     } 
     
     
@@ -158,45 +174,7 @@ public class Navigator : MonoBehaviour
     
     
     
-    private static async void LoadPage(string uri)
-    {
-        Debug.Log("Debut du chargement du monde : " + uri);
-        _adress = uri;
-        _textFieldAdresse.text = _adress;
-        ClearPage();
-        string requete = GetRequest(uri);
-        new Page(requete);
-                
-        _engine.SetValue("Page", _page);
-      
-        for (int i = 0; i < _page.CountEntity(); i++){
-            _page.GetEntity(i).StartScript();
-        }
-        
-        Debug.Log("Fin du chargement du monde : " + uri);
-        
-    } 
     
-    private static async void LoadPage(string uri,Dictionary<string, string> form)
-    {
-        Debug.Log("Debut du chargement du monde : " + uri);
-        _adress = uri;
-        _textFieldAdresse.text = _adress;
-        ClearPage();
-       
-        
-        string requete = GetRequestPost(uri,form);
-        new Page(requete);
-                
-        _engine.SetValue("Page", _page);
-      
-        for (int i = 0; i < _page.CountEntity(); i++){
-            _page.GetEntity(i).StartScript();
-        }
-        
-        Debug.Log("Fin du chargement du monde : " + uri);
-        
-    } 
     
     
     
@@ -218,6 +196,28 @@ public class Navigator : MonoBehaviour
     
     
     
+    private static async void LoadPage(string uri,Dictionary<string, string> form = null)
+    {
+        Debug.Log("Debut du chargement du monde : " + uri);
+        _adress = uri;
+        _textFieldAdresse.text = _adress;
+        ClearPage();
+       
+        
+        UnityWebRequest webRequest = await GetRequest(uri);
+        if(webRequest .result == UnityWebRequest.Result.Success){
+            new Page(webRequest.downloadHandler.text);
+                    
+            _engine.SetValue("Page", _page);
+          
+            for (int i = 0; i < _page.CountEntity(); i++){
+                _page.GetEntity(i).StartScript();
+            }
+            
+            Debug.Log("Fin du chargement du monde : " + uri);
+        }
+    } 
+    
     
     public static async Task<Mesh> LoadMesh (string path) {
     
@@ -233,30 +233,84 @@ public class Navigator : MonoBehaviour
         }
         else
         {
-            string data = GetRequest(path);
-            if(data.Substring(0, 5) != "Error"){
-                Mesh mesh = FileReader.ReadObjFile (data);
+            UnityWebRequest webRequest = await GetRequest(path);
+            if(webRequest .result == UnityWebRequest.Result.Success){
+                Mesh mesh = await FileReader.ReadObjFile (webRequest.downloadHandler.text);
+                if(!_meshCache.TryGetValue(path, out temp))
+                {
+                    _meshCache.Add(path, mesh);
+                }else{
+                    _meshCache[path] = mesh;
+                }
                 
-                _meshCache.Add(path, mesh);
         		return mesh;
             }
             return null;
         }
     }
     
+    public static async Task<Texture2D> LoadTexture (string path) {
     
-    public static string GetRequest (string uri) 
+        if(path == ""){
+            return null;
+        }else if(path.Substring(0, 6) == "local:"){
+            return Resources.Load<Texture2D>("Texture/" + path.Substring(6));
+        }
+        Texture2D temp;
+        if(_textureCache.TryGetValue(path, out temp))
+        {
+            return temp;
+        }
+        else
+        {   
+           
+            UnityWebRequest webRequest = await GetRequest(path);
+            if(webRequest.result == UnityWebRequest.Result.Success){
+                Texture2D texture = new Texture2D(2, 2);
+                texture.LoadImage(webRequest.downloadHandler.data);
+                
+                if(!_textureCache.TryGetValue(path, out temp))
+                {
+                    _textureCache.Add(path, texture);
+                }else{
+                    _textureCache[path] = texture;
+                }
+        		return texture;
+            }
+            return null;
+        }
+    }
+    
+    public static async Task<UnityWebRequest> GetRequest(string uri,string json)
     {
-        UnityWebRequest webRequest = UnityWebRequest.Get(uri);
+        return await GetRequest(uri,JsonConvert.DeserializeObject<Dictionary<string, string>>(json));
+    }
+    
+    public static async Task<UnityWebRequest> GetRequest (string uri,Dictionary<string, string> form = null) 
+    {
+        
+        UnityWebRequest webRequest;
+        if(form != null){
+        
+            WWWForm wwwForm = new WWWForm();
+            
+            foreach(KeyValuePair<string, string> entry in form)
+            {
+                wwwForm.AddField( entry.Key, entry.Value );
+            }
+            webRequest = UnityWebRequest.Post(uri,wwwForm);
+            
+        }else{
+            webRequest = UnityWebRequest.Get(uri);
+        }
+        
+        
         // Request and wait for the desired page.
-        webRequest.SendWebRequest();
-        string[] pages = uri.Split('/');
-        int page = pages.Length - 1;
-        while(webRequest.result == UnityWebRequest.Result.InProgress){
-            
-        }
+        await webRequest.SendWebRequest();
         
-        switch (webRequest.result)
+        return webRequest;
+        
+        /*switch (webRequest.result)
         {
             case UnityWebRequest.Result.ConnectionError:
             case UnityWebRequest.Result.DataProcessingError:
@@ -270,54 +324,12 @@ public class Navigator : MonoBehaviour
             case UnityWebRequest.Result.Success:
                 return webRequest.downloadHandler.text;
                 break;
-        }
+        }*/
             
-        return "vide";
     }
     
     
-    public static string GetRequestPost (string uri,string json)
-    {
-        return GetRequestPost(uri,JsonConvert.DeserializeObject<Dictionary<string, string>>(json));
-    }
     
     
-    public static string GetRequestPost (string uri,Dictionary<string, string> form) 
-    {
-        WWWForm wwwForm = new WWWForm();
-        
-        foreach(KeyValuePair<string, string> entry in form)
-        {
-            wwwForm.AddField( entry.Key, entry.Value );
-        }
-        
-        
-        UnityWebRequest webRequest = UnityWebRequest.Post(uri,wwwForm);
-       
-        webRequest.SendWebRequest();
-        string[] pages = uri.Split('/');
-        int page = pages.Length - 1;
-        while(webRequest.result == UnityWebRequest.Result.InProgress){
-            
-        }
-        
-        switch (webRequest.result)
-        {
-            case UnityWebRequest.Result.ConnectionError:
-            case UnityWebRequest.Result.DataProcessingError:
-                Debug.LogError(pages[page] + ": Error: " + webRequest.error);
-                return "Error : " + webRequest.error;
-                break;
-            case UnityWebRequest.Result.ProtocolError:
-                Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
-                return "Error : " + webRequest.error;
-                break;
-            case UnityWebRequest.Result.Success:
-                return webRequest.downloadHandler.text;
-                break;
-        }
-            
-        return "vide";
-    }
     
 }

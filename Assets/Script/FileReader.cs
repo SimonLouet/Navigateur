@@ -32,6 +32,8 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text;  
+using System.Threading.Tasks;
 
 public class FileReader {
 
@@ -44,8 +46,20 @@ public class FileReader {
 		public List<Vector2> vt;
 		public List<List<int[]>> f;
 	}
-
-	public static Mesh ReadObjFile (string data) {
+    
+    public static Texture2D ReadPngJpgFile (string data) {
+           Debug.Log(data.Length );
+           byte[] bytes = Encoding.Default.GetBytes(data);
+           Debug.Log(bytes.Length );
+           Debug.Log(bytes );
+           Texture2D tex = new Texture2D(2, 2);
+           Debug.Log(tex.LoadImage(bytes) );
+           return tex;
+    
+    }
+    
+    
+	public static async Task<Mesh> ReadObjFile (string data) {
         float maxX = 0;
         float maxXline = 0;
         float x = 0;
@@ -126,7 +140,6 @@ public class FileReader {
 			}
             x += 1;
 		}
-        Debug.Log("ligne : " + maxXline + "  value : " + maxX);
         List<int[]> triplets = new List<int[]> ();
   		List<int> submeshes = new List<int> ();
   

@@ -272,6 +272,7 @@ public class Entity
         
         SetMesh("");
         SetMeshCollider("");
+        SetTexture("");
         
         
         SetScript("");
@@ -353,6 +354,10 @@ public class Entity
         
         if(values.ContainsKey("meshCollider")){
             SetMeshCollider(values["meshCollider"].ToString());
+        }
+        
+        if(values.ContainsKey("texture")){
+            SetTexture(values["texture"].ToString());
         }
         
         
@@ -715,6 +720,7 @@ public class Entity
             renderer.material = Navigator._materiel;
             Mesh mesh = await Navigator.LoadMesh(path);
             filter.mesh = mesh;
+            SetTexture(_texture);
         }        
     }   
     
@@ -746,6 +752,33 @@ public class Entity
     public string GetMeshCollider(){
         return _meshCollider;
     }
+    
+    
+    public async void SetTexture(string path)
+    {
+        _texture = path;
+        if (path == ""){
+            MeshRenderer renderer = _gameObject.GetComponent<MeshRenderer>(); 
+            if(renderer != null){
+                renderer.material.mainTexture = null;
+            }
+            
+            
+        }else{
+            MeshRenderer renderer = _gameObject.GetComponent<MeshRenderer>(); 
+            if(renderer != null){
+                renderer.material.mainTexture = await Navigator.LoadTexture(path);
+            }
+            
+        }
+    }  
+    
+    public string GetTexure(){
+        return _texture;
+    }
+    
+    
+    
     
     
     public void SetScript(string script)
