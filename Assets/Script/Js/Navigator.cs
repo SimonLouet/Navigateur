@@ -244,6 +244,8 @@ public class Navigator : MonoBehaviour
                 }
                 
         		return mesh;
+            }else{
+                Debug.Log("Impossible de charger le Mesh : " + path);
             }
             return null;
         }

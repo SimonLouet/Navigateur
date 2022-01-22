@@ -10,7 +10,7 @@ using System;
 public class GeneratorWorld : MonoBehaviour
 {
     public GameObject _world;
-    
+    public string _adresse;
     // Start is called before the first frame update
     void Start()
     {
@@ -95,42 +95,115 @@ public class GeneratorWorld : MonoBehaviour
         data += "    },\n";
         data += "    \"type\":\"3DModel\",\n";
         
+        
+        TextMesh textMesh = obj.GetComponent<TextMesh>(); 
+        if(textMesh != null){
+            data += "    \"text\":\"" + textMesh.text.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+            data += "    \"textColor\":\"#" + ColorUtility.ToHtmlStringRGBA(textMesh.color) + "\",\n";
+            data += "    \"textSize\":\"" + textMesh.characterSize + "\",\n";
+            
+            if(textMesh.anchor == TextAnchor.UpperLeft){
+                data += "    \"textAlignment\":\"Upper-Left\",\n";
+            }else if(textMesh.anchor == TextAnchor.UpperCenter){
+                data += "    \"textAlignment\":\"Upper-Center\",\n";
+            }else if(textMesh.anchor == TextAnchor.UpperRight){
+                data += "    \"textAlignment\":\"Upper-Right\",\n";
+            }else if(textMesh.anchor == TextAnchor.MiddleLeft){
+                data += "    \"textAlignment\":\"Middle-Left\",\n";
+            }else if(textMesh.anchor == TextAnchor.MiddleCenter){
+                data += "    \"textAlignment\":\"Middle-Center\",\n";
+            }else if(textMesh.anchor == TextAnchor.MiddleRight){
+                data += "    \"textAlignment\":\"Middle-Right\",\n";
+            }else if(textMesh.anchor == TextAnchor.LowerLeft){
+                data += "    \"textAlignment\":\"Lower-Left\",\n";
+            }else if(textMesh.anchor == TextAnchor.LowerCenter){
+                data += "    \"textAlignment\":\"Lower-Center\",\n";
+            }else if(textMesh.anchor == TextAnchor.LowerRight){
+                data += "    \"textAlignment\":\"Lower-Right\",\n";
+            }    
+             
+            
+        }/*else{
+          MeshFilter renderer = obj.GetComponent<MeshFilter>(); 
+          if(renderer != null){
+              if(renderer.sharedMesh.name == "Cube"){
+                  data += "    \"mesh\":\"local:cube\",\n";
+                  data += "    \"meshCollider\":\"local:cube\",\n";
+              }else{
+                  data += "    \"mesh\":\"" + _adresse+"/obj/"+ renderer.sharedMesh.name + ".obj\",\n";
+                  data += "    \"meshCollider\":\"" + _adresse+"/obj/"+ renderer.sharedMesh.name + ".obj\",\n";
+              }
+              
+          }
+        
+        }*/
+            
+        Light light = obj.GetComponent<Light>(); 
+        if(light != null){
+            if(light.type == LightType.Spot){
+                data += "    \"lightType\":\"spot\",\n";
+                data += "    \"lightColor\":\"#" + ColorUtility.ToHtmlStringRGB(light.color) + "\",\n";
+                data += "    \"lightRange\":\"" + light.range + "\",\n";
+                data += "    \"lightAngle\":\"" + light.spotAngle + "\",\n";
+                data += "    \"lightIntensity\":\"" + light.intensity + "\",\n";
+            }else if (light.type == LightType.Point){
+                data += "    \"lightType\":\"point\",\n";
+                data += "    \"lightColor\":\"#" + ColorUtility.ToHtmlStringRGB(light.color) + "\",\n";
+                data += "    \"lightRange\":\"" + light.range + "\",\n";
+                data += "    \"lightIntensity\":\"" + light.intensity + "\",\n";
+            }else if (light.type == LightType.Directional){
+                data += "    \"lightType\":\"directional\",\n";
+                data += "    \"lightColor\":\"#" + ColorUtility.ToHtmlStringRGB(light.color) + "\",\n";
+                data += "    \"lightIntensity\":\"" + light.intensity + "\",\n";
+            }
+        }
+        
+               
         GeneratorEntity entity = obj.GetComponent<GeneratorEntity>();   
         if(entity != null){
-            MeshRenderer renderer = obj.GetComponent<MeshRenderer>(); 
-            if(renderer != null){
+            if(entity._id != ""){
+                data += "    \"id\":\"" + entity._id + "\",\n";
+            }
+            if(entity._mesh != ""){
                 data += "    \"mesh\":\"" + entity._mesh + "\",\n";
                 data += "    \"meshCollider\":\"" + entity._mesh + "\",\n";
             }
             
-            if(entity._script != ""){
-                data += "    \"script\":\"" + entity._script + "\",\n";
+            if(entity._texture != ""){
+                data += "    \"texture\":\"" + entity._texture + "\",\n";
             }
             
+            
+            if(entity._script != ""){
+                data += "    \"script\":\"" + entity._script.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+            }
+            
+            if(entity._onClick != ""){
+                data += "    \"onClick\":\"" + entity._onClick.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+            }
+            
+            if(entity._onMouseOver != ""){
+                data += "    \"onMouseOver\":\"" + entity._onMouseOver.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+            }
+            if(entity._onMouseOut != ""){
+                data += "    \"onMouseOut\":\"" + entity._onMouseOut.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+            }
             if(entity._onUpdate != ""){
-                data += "    \"onUpdate\":\"" + entity._onUpdate + "\",\n";
+                data += "    \"onUpdate\":\"" + entity._onUpdate.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+            }
+            if(entity._onChangeValue != ""){
+                data += "    \"onChangeValue\":\"" + entity._onChangeValue.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+            }
+            if(entity._onKey != ""){
+                data += "    \"onKey\":\"" + entity._onKey.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+            }
+            if(entity._onFocus != ""){
+                data += "    \"onFocus\":\"" + entity._onFocus.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+            }
+            if(entity._onBlur != ""){
+                data += "    \"onBlur\":\"" + entity._onBlur.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
             }
             Debug.Log(obj.transform.name);
-            Light light = obj.GetComponent<Light>(); 
-            if(light != null){
-            
-                if(light.type == LightType.Spot){
-                    data += "    \"lightType\":\"spot\",\n";
-                    data += "    \"lightAngle\":\"" + light.spotAngle + "\",\n";
-                    data += "    \"lightIntensity\":\"" + light.intensity + "\",\n";
-                    data += "    \"lightRange\":\"" + light.range + "\",\n";
-                    data += "    \"lightColor\":\"#" + ColorUtility.ToHtmlStringRGBA(light.color) + "\",\n";
-                }else if (light.type == LightType.Point){
-                    data += "    \"lightType\":\"point\",\n";
-                    data += "    \"lightIntensity\":\"" + light.intensity + "\",\n";
-                    data += "    \"lightRange\":\"" + light.range + "\",\n";
-                    data += "    \"lightColor\":\"#" + ColorUtility.ToHtmlStringRGBA(light.color) + "\",\n";
-                }else{
-                    data += "    \"lightType\":\"directionnal\",\n";
-                    data += "    \"lightIntensity\":\"" + light.intensity + "\",\n";
-                    data += "    \"lightColor\":\"#" + ColorUtility.ToHtmlStringRGBA(light.color) + "\",\n";
-                }
-            }
             
             
             

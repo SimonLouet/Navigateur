@@ -215,11 +215,13 @@ public class Entity
     private string _id;
     private string _type;
     private string _href;
+    private string _value;
+    private bool _focus;
+    
     private string _text;
     private float  _textSize;
     private string _textColor;
-    private string _value;
-    private bool _focus;
+    private string _textAlignment;
     
     private string _lightType;
     private string _lightColor;
@@ -261,6 +263,7 @@ public class Entity
         SetHref("");
         SetText("");
         SetTextSize(1);
+        SetTextAlignment("Middle-Right");
         SetValue("");
         SetFocus(false);
         
@@ -319,6 +322,10 @@ public class Entity
         
         if(values.ContainsKey("textColor")){
             SetTextColor(values["textColor"].ToString());
+        }
+        
+        if(values.ContainsKey("textAlignment")){
+            SetTextAlignment(values["textAlignment"].ToString());
         }
         
         if(values.ContainsKey("value")){
@@ -488,6 +495,27 @@ public class Entity
             Color color;
             ColorUtility.TryParseHtmlString(_textColor, out color);
             textMesh.color = color;
+            if(_textAlignment == "Upper-Left"){
+                textMesh.anchor = TextAnchor.UpperLeft;
+            }else if(_textAlignment == "Upper-Center"){
+                textMesh.anchor = TextAnchor.UpperCenter;
+            }else if(_textAlignment == "Upper-Right"){
+                textMesh.anchor = TextAnchor.UpperRight;
+            }else if(_textAlignment == "Middle-Left"){
+                textMesh.anchor = TextAnchor.MiddleLeft;
+            }else if(_textAlignment == "Middle-Center"){
+                textMesh.anchor = TextAnchor.MiddleCenter;
+            }else if(_textAlignment == "Middle-Right"){
+                textMesh.anchor = TextAnchor.MiddleRight;
+            }else if(_textAlignment == "Lower-Left"){
+                textMesh.anchor = TextAnchor.LowerLeft;
+            }else if(_textAlignment == "Lower-Center"){
+                textMesh.anchor = TextAnchor.LowerCenter;
+            }else if(_textAlignment == "Lower-Right"){
+                textMesh.anchor = TextAnchor.LowerRight;
+            }
+            
+            
         } 
     }
     
@@ -503,6 +531,18 @@ public class Entity
     public float GetTextSize(){
         return _textSize;
     }
+    
+    
+    public void SetTextAlignment(string textAlignment){
+        _textAlignment = textAlignment;
+        SetText(_text); 
+    }
+    
+    public string GetTextAlignment(){
+        return _textAlignment;
+    }
+    
+    
     
     public void SetTextColor(string textColor){
         _textColor = textColor;
