@@ -222,6 +222,8 @@ public class Entity
     private float  _textSize;
     private string _textColor;
     private string _textAlignment;
+    private float _textWidth;
+    private float _textHeight;
     
     private string _lightType;
     private string _lightColor;
@@ -261,9 +263,14 @@ public class Entity
         SetId("");
         SetType("");
         SetHref("");
+        
         SetText("");
         SetTextSize(1);
+        SetTextColor("#000000");
         SetTextAlignment("Middle-Right");
+        SetTextWidth(20);
+        SetTextHeight(5);
+        
         SetValue("");
         SetFocus(false);
         
@@ -327,6 +334,14 @@ public class Entity
         if(values.ContainsKey("textAlignment")){
             SetTextAlignment(values["textAlignment"].ToString());
         }
+        
+        if(values.ContainsKey("textWidth")){
+            SetTextWidth(Convert.ToSingle(values["textWidth"]));
+        }
+        
+        if(values.ContainsKey("textHeight")){
+            SetTextHeight(Convert.ToSingle(values["textHeight"]));
+        }        
         
         if(values.ContainsKey("value")){
             SetValue(values["value"].ToString());
@@ -461,67 +476,92 @@ public class Entity
     public void SetText(string text){
         _text = text;
         if (_text == ""){
-            TextMesh textMesh = _gameObject.GetComponent<TextMesh>(); 
+            TextMeshPro textMesh = _gameObject.GetComponent<TextMeshPro>(); 
             if(textMesh != null){
-                GameObject.Destroy (textMesh);
+                GameObject.DestroyImmediate (textMesh);
             }
             
             MeshFilter filter = _gameObject.GetComponent<MeshFilter>();   
             if(filter == null){
                 MeshRenderer renderer = _gameObject.GetComponent<MeshRenderer>(); 
                 if(renderer != null){
-                    GameObject.Destroy (renderer);
+                    GameObject.DestroyImmediate (renderer);
                 }
             }
         }else{
-            
-		    MeshRenderer renderer = _gameObject.GetComponent<MeshRenderer>(); 
-            if(renderer == null){
-                renderer = _gameObject.AddComponent<MeshRenderer> ();
-            }
-            
-            MeshFilter filter = _gameObject.GetComponent<MeshFilter>();   
-            if(filter != null){
-                GameObject.Destroy (filter);
-            }
-            
-            TextMesh textMesh = _gameObject.GetComponent<TextMesh>(); 
+            TextMeshPro textMesh = _gameObject.GetComponent<TextMeshPro>(); 
             if(textMesh == null){
-                textMesh = _gameObject.AddComponent<TextMesh> ();
+                textMesh = _gameObject.AddComponent<TextMeshPro> ();
             }
             
+            // Set the text
             textMesh.text = _text;
-            textMesh.characterSize = _textSize;
+
+            
+            
+            textMesh.fontSize  = _textSize;
             Color color;
             ColorUtility.TryParseHtmlString(_textColor, out color);
             textMesh.color = color;
             if(_textAlignment == "Upper-Left"){
-                textMesh.anchor = TextAnchor.UpperLeft;
+                textMesh.alignment = TextAlignmentOptions.TopLeft;
             }else if(_textAlignment == "Upper-Center"){
-                textMesh.anchor = TextAnchor.UpperCenter;
+                textMesh.alignment = TextAlignmentOptions.Top;
             }else if(_textAlignment == "Upper-Right"){
-                textMesh.anchor = TextAnchor.UpperRight;
+                textMesh.alignment = TextAlignmentOptions.TopRight;
             }else if(_textAlignment == "Middle-Left"){
-                textMesh.anchor = TextAnchor.MiddleLeft;
+                textMesh.alignment = TextAlignmentOptions.Left;
             }else if(_textAlignment == "Middle-Center"){
-                textMesh.anchor = TextAnchor.MiddleCenter;
+                textMesh.alignment = TextAlignmentOptions.Center;
             }else if(_textAlignment == "Middle-Right"){
-                textMesh.anchor = TextAnchor.MiddleRight;
+                textMesh.alignment = TextAlignmentOptions.Right;
             }else if(_textAlignment == "Lower-Left"){
-                textMesh.anchor = TextAnchor.LowerLeft;
+                textMesh.alignment = TextAlignmentOptions.BottomLeft;
             }else if(_textAlignment == "Lower-Center"){
-                textMesh.anchor = TextAnchor.LowerCenter;
+                textMesh.alignment = TextAlignmentOptions.Bottom;
             }else if(_textAlignment == "Lower-Right"){
-                textMesh.anchor = TextAnchor.LowerRight;
+                textMesh.alignment = TextAlignmentOptions.BottomRight;
             }
+            textMesh.ForceMeshUpdate();
             
-            
+            if(_meshCollider == "local:text"){
+                
+                SetMeshCollider("local:text");
+            }
         } 
     }
+    
     
     public string GetText(){
         return _text;
     }
+    
+    
+    public void SetTextWidth(float textWidth){
+        _textWidth = textWidth;
+        RectTransform rectTransform = _gameObject.GetComponent<RectTransform>();
+        if(rectTransform != null){
+            Debug.Log("qzdqzdqzdqzd");
+            rectTransform.sizeDelta = new Vector2(_textWidth,_textHeight);
+        }
+    }
+    
+    public float GetTextWidth(){
+        return _textWidth;
+    }
+    
+    public void SetTextHeight(float textHeight){
+        _textHeight = textHeight;
+        RectTransform rectTransform = _gameObject.GetComponent<RectTransform>();
+        if(rectTransform != null){
+            rectTransform.sizeDelta = new Vector2(_textWidth,_textHeight);
+        }
+    }
+    
+    public float GetTextHeight(){
+        return _textHeight;
+    }
+    
     
     public void SetTextSize(float textSize){
         _textSize = textSize;
@@ -694,6 +734,17 @@ public class Entity
     
     public void SetType(string type){
         _type = type;
+        
+        if(_type == "InputText"){
+            SetText("...");
+            SetOnMouseOver("entityParent.SetTextColor(\"#FFFFFF\");");
+            SetOnMouseOut("if(entityParent.GetFocus()){entityParent.SetTextColor(\"#D5D5D5\");}else{entityParent.SetTextColor(\"#000000\");}");
+            SetOnFocus("entityParent.SetTextColor(\"#D5D5D5\");entityParent.SetText(entityParent.GetValue() + \"|\");");
+            SetOnBlur("entityParent.SetTextColor(\"#000000\");if(entityParent.GetValue() == \"\"){entityParent.SetText(\"...\");}else{entityParent.SetText(entityParent.GetValue());}");
+            SetOnKey("if(entityParent.GetFocus()){var text = entityParent.GetValue(); if(key != \"\\b\" && key != \"\\n\" && key != \"\\r\"){text += key;}else if(key == \"\\b\"){text = text.slice(0, -1);}entityParent.SetValue(text);}");
+            SetMeshCollider("local:text");
+            SetOnChangeValue("if(entityParent.GetFocus()){entityParent.SetText(entityParent.GetValue() + \"|\");}else{entityParent.SetText(entityParent.GetValue());}");
+        }
     }
     
     public string GetType(){
@@ -731,14 +782,14 @@ public class Entity
         if (path == ""){
             MeshFilter filter = _gameObject.GetComponent<MeshFilter>();   
             if(filter != null){
-                GameObject.Destroy (filter);
+                GameObject.DestroyImmediate (filter);
             }
             
-            TextMesh textMesh = _gameObject.GetComponent<TextMesh>(); 
+            TextMeshPro textMesh = _gameObject.GetComponent<TextMeshPro>(); 
             if(textMesh == null){
     		    MeshRenderer renderer = _gameObject.GetComponent<MeshRenderer>(); 
                 if(renderer != null){
-                    GameObject.Destroy (renderer);
+                    GameObject.DestroyImmediate (renderer);
                 }
             }
         }else{
@@ -747,9 +798,9 @@ public class Entity
                 renderer = _gameObject.AddComponent<MeshRenderer> ();
             }
             
-            TextMesh textMesh = _gameObject.GetComponent<TextMesh>(); 
+            TextMeshPro textMesh = _gameObject.GetComponent<TextMeshPro>(); 
             if(textMesh != null){
-                GameObject.Destroy (textMesh);
+                GameObject.DestroyImmediate (textMesh);
             }
             
             MeshFilter filter = _gameObject.GetComponent<MeshFilter>(); 
@@ -773,19 +824,35 @@ public class Entity
     {
         _meshCollider = path;
         if (path == ""){
+            BoxCollider boxCollider = _gameObject.GetComponent<BoxCollider>(); 
+            if(boxCollider != null){
+                GameObject.DestroyImmediate (boxCollider);
+            }
+            
             MeshCollider collider = _gameObject.GetComponent<MeshCollider>();   
             if(collider != null){
-                GameObject.Destroy (collider);
+                GameObject.DestroyImmediate (collider);
             }
             
         }else{
+        
             MeshCollider collider = _gameObject.GetComponent<MeshCollider>();
-            if(collider == null){
-                collider = _gameObject.AddComponent<MeshCollider> ();
+            GameObject.DestroyImmediate (collider);
+            collider = _gameObject.AddComponent<MeshCollider> ();
+            
+                
+                
+            if(_meshCollider == "local:text"){
+                collider.convex = true;
+            }else{
+                Mesh mesh = await Navigator.LoadMesh(path);
+                collider.sharedMesh = mesh;
+                collider.convex = false;
             }
             
-            Mesh mesh = await Navigator.LoadMesh(path);
-            collider.sharedMesh = mesh;
+            
+            
+            
         }
     }  
     

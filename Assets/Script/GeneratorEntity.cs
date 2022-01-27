@@ -6,7 +6,9 @@ public class GeneratorEntity : MonoBehaviour
 {
 
     public string _id;
+    public string _type;
     public string _mesh;
+    public string _href;
     public string _texture;
     public string _script;
     public string _onClick;

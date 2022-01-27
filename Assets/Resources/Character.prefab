@@ -204,5 +204,5 @@ MonoBehaviour:
   _speedMove: 5
   _jumpHeight: 1
   _gravity: -9.81
-  _speedRotationY: 150
-  _speedRotationX: 80
+  _speedRotationY: 300
+  _speedRotationX: 250

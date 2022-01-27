@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.IO;
 using System;
+using TMPro;
 
 public class GeneratorWorld : MonoBehaviour
 {
@@ -96,32 +97,41 @@ public class GeneratorWorld : MonoBehaviour
         data += "    \"type\":\"3DModel\",\n";
         
         
-        TextMesh textMesh = obj.GetComponent<TextMesh>(); 
+        TextMeshPro textMesh = obj.GetComponent<TextMeshPro>(); 
         if(textMesh != null){
             data += "    \"text\":\"" + textMesh.text.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
             data += "    \"textColor\":\"#" + ColorUtility.ToHtmlStringRGBA(textMesh.color) + "\",\n";
-            data += "    \"textSize\":\"" + textMesh.characterSize + "\",\n";
+            data += "    \"textSize\":\"" + textMesh.fontSize + "\",\n";
             
-            if(textMesh.anchor == TextAnchor.UpperLeft){
+                
+                
+            if(textMesh.alignment == TextAlignmentOptions.TopLeft){
                 data += "    \"textAlignment\":\"Upper-Left\",\n";
-            }else if(textMesh.anchor == TextAnchor.UpperCenter){
+            }else if(textMesh.alignment == TextAlignmentOptions.Top){
                 data += "    \"textAlignment\":\"Upper-Center\",\n";
-            }else if(textMesh.anchor == TextAnchor.UpperRight){
+            }else if(textMesh.alignment == TextAlignmentOptions.TopRight){
                 data += "    \"textAlignment\":\"Upper-Right\",\n";
-            }else if(textMesh.anchor == TextAnchor.MiddleLeft){
+            }else if(textMesh.alignment == TextAlignmentOptions.Left){
                 data += "    \"textAlignment\":\"Middle-Left\",\n";
-            }else if(textMesh.anchor == TextAnchor.MiddleCenter){
+            }else if(textMesh.alignment == TextAlignmentOptions.Center){
                 data += "    \"textAlignment\":\"Middle-Center\",\n";
-            }else if(textMesh.anchor == TextAnchor.MiddleRight){
+            }else if(textMesh.alignment == TextAlignmentOptions.Right){
                 data += "    \"textAlignment\":\"Middle-Right\",\n";
-            }else if(textMesh.anchor == TextAnchor.LowerLeft){
+            }else if(textMesh.alignment == TextAlignmentOptions.BottomLeft){
                 data += "    \"textAlignment\":\"Lower-Left\",\n";
-            }else if(textMesh.anchor == TextAnchor.LowerCenter){
+            }else if(textMesh.alignment == TextAlignmentOptions.Bottom){
                 data += "    \"textAlignment\":\"Lower-Center\",\n";
-            }else if(textMesh.anchor == TextAnchor.LowerRight){
+            }else if(textMesh.alignment == TextAlignmentOptions.BottomRight){
                 data += "    \"textAlignment\":\"Lower-Right\",\n";
             }    
-             
+            
+            
+            RectTransform rectTransform = obj.GetComponent<RectTransform>();
+            if(rectTransform != null){
+                data += "    \"textWidth\":\"" + rectTransform.sizeDelta.x + "\",\n";
+                data += "    \"textHeight\":\"" + rectTransform.sizeDelta.y + "\",\n";
+                
+            }
             
         }/*else{
           MeshFilter renderer = obj.GetComponent<MeshFilter>(); 
@@ -164,6 +174,9 @@ public class GeneratorWorld : MonoBehaviour
             if(entity._id != ""){
                 data += "    \"id\":\"" + entity._id + "\",\n";
             }
+            if(entity._type != ""){
+                data += "    \"type\":\"" + entity._type + "\",\n";
+            }
             if(entity._mesh != ""){
                 data += "    \"mesh\":\"" + entity._mesh + "\",\n";
                 data += "    \"meshCollider\":\"" + entity._mesh + "\",\n";
@@ -202,6 +215,9 @@ public class GeneratorWorld : MonoBehaviour
             }
             if(entity._onBlur != ""){
                 data += "    \"onBlur\":\"" + entity._onBlur.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+            }
+            if(entity._href != ""){
+                data += "    \"href\":\"" + entity._href + "\",\n";
             }
             Debug.Log(obj.transform.name);
             

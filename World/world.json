@@ -194,7 +194,7 @@
     "children":[
 {
     "transform":{
-        "scaleX":6.951552,
+        "scaleX":6.2,
         "scaleY":0.9188699,
         "scaleZ":0.1
     },
@@ -203,12 +203,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.1,
     },
     "type":"3DModel",
     "text":"Json:\n	\"onUpdate\":\"entityParent.GetTransform().SetRotY(entityParent.GetTransform().GetRotY() + deltaTime * 5)\"\n	\nJs:\n	objet.SetOnUpdate(\"entityParent.GetTransform().SetRotY(entityParent.GetTransform().GetRotY() + deltaTime * 5)\");",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"6",
+    "textHeight":"5",
 }   
 ]
 }   
@@ -233,12 +236,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.063,
     },
     "type":"3DModel",
     "text":"Javascript",
     "textColor":"#000000FF",
-    "textSize":"0,3",
+    "textSize":"4",
     "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
 }   
 ]
 },{
@@ -288,8 +294,8 @@
     "children":[
 {
     "transform":{
-        "scaleX":6.29331,
-        "scaleY":0.9158693,
+        "scaleX":5.2,
+        "scaleY":0.7778569,
         "scaleZ":0.1
     },
     "type":"3DModel",
@@ -297,12 +303,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.1,
     },
     "type":"3DModel",
     "text":"Json:\n	\"onClick\":\"entityParent.GetTransform().SetRotY(entityParent.GetTransform().GetRotY() + 30)\"\n	\nJs:\n	objet.SetOnClick(\"entityParent.GetTransform().SetRotY(entityParent.GetTransform().GetRotY() + 30)\");",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"5",
+    "textHeight":"5",
 }   
 ]
 }   
@@ -354,8 +363,8 @@
     "children":[
 {
     "transform":{
-        "scaleX":4.260893,
-        "scaleY":1.190838,
+        "scaleX":4.2,
+        "scaleY":0.997148,
         "scaleZ":0.1
     },
     "type":"3DModel",
@@ -363,12 +372,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.1,
     },
     "type":"3DModel",
     "text":"Json:\n	\"onMouseOver\":\"entityParent.GetTransform().SetScaleY(2)\",\n	\"onMouseOut\":\"entityParent.GetTransform().SetScaleY(1)\"\n	\nJs:\n	objet.SetOnMouseOver(\"entityParent.GetTransform().SetScaleY(2)\");\n	objet.SetOnMouseOut(\"entityParent.GetTransform().SetScaleY(1)\");",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"4",
+    "textHeight":"5",
 }   
 ]
 }   
@@ -422,8 +434,8 @@
     "children":[
 {
     "transform":{
-        "scaleX":4.086424,
-        "scaleY":1.205652,
+        "scaleX":4.2,
+        "scaleY":1.100049,
         "scaleZ":0.1
     },
     "type":"3DModel",
@@ -431,12 +443,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.1,
     },
     "type":"3DModel",
     "text":"Json:\n	\"onFocus\":\"entityParent.GetTransform().SetScaleY(2)\",\n	\"onBlur\":\"entityParent.GetTransform().SetScaleY(1)\"\n	\nJs:\n	objet.SetOnFocus(\"entityParent.GetTransform().SetScaleY(2)\");\n	objet.SetOnBlur\"entityParent.GetTransform().SetScaleY(1)\");",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"4",
+    "textHeight":"5",
 }   
 ]
 },{
@@ -485,8 +500,10 @@
     "type":"3DModel",
     "text":"A",
     "textColor":"#000000FF",
-    "textSize":"2",
+    "textSize":"30",
     "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
     "onKey":"entityParent.SetText(key);",
 },{
     "transform":{
@@ -498,8 +515,8 @@
     "children":[
 {
     "transform":{
-        "scaleX":2.995823,
-        "scaleY":0.930235,
+        "scaleX":3.2,
+        "scaleY":0.8243556,
         "scaleZ":0.1
     },
     "type":"3DModel",
@@ -507,12 +524,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.1,
     },
     "type":"3DModel",
     "text":"Json:\n	\"onKey\":\"entityParent.SetText(key);\"\n	\nJs:\n	objet.SetOnKey(\"entityParent.SetText(key);\");",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"3",
+    "textHeight":"5",
 }   
 ]
 }   
@@ -537,12 +557,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.0649,
     },
     "type":"3DModel",
     "text":"Event",
     "textColor":"#000000FF",
-    "textSize":"0,3",
+    "textSize":"4",
     "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
 }   
 ]
 },{
@@ -569,7 +592,7 @@
     },
     "type":"3DModel",
     "lightType":"point",
-    "lightColor":"#FF0000",
+    "lightColor":"#00FF00",
     "lightRange":"7,96",
     "lightIntensity":"4,46",
 },{
@@ -594,8 +617,8 @@
     "children":[
 {
     "transform":{
-        "scaleX":7.011417,
-        "scaleY":1.193352,
+        "scaleX":6.2,
+        "scaleY":1.040245,
         "scaleZ":0.1
     },
     "type":"3DModel",
@@ -603,16 +626,62 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.1,
     },
     "type":"3DModel",
     "text":"Json:\n	\"id\":\"CubeExempleId\"\n	\nJs:\n	var objet = Page.GetEntityById(\"CubeExempleId\");\n	\n	objet.SetOnUpdate(\"entityParent.GetTransform().SetRotY(entityParent.GetTransform().GetRotY() + deltaTime * 5);\")",
     "textColor":"#000000FF",
-    "textSize":"0,1",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"6",
+    "textHeight":"5",
+}   
+]
+}   
+]
+},{
+    "transform":{
+        "posX":19,
+        "posY":4.440001,
+        "posZ":-13.332,
+        "rotX":340,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "scaleX":6.315,
+        "scaleY":0.56116,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posZ":-0.0555,
+    },
+    "type":"3DModel",
+    "text":"Id",
+    "textColor":"#000000FF",
+    "textSize":"4",
     "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
 }   
 ]
-}   
-]
+},{
+    "transform":{
+        "posX":25,
+        "posY":2.5,
+        "posZ":-11,
+        "scaleY":5,
+        "scaleZ":6
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
 }   
 ]
 },{
@@ -654,10 +723,10 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":40,
+        "posX":60,
         "posY":2.5,
         "posZ":14,
-        "scaleX":53.75,
+        "scaleX":93.75,
         "scaleY":5,
     },
     "type":"3DModel",
@@ -665,10 +734,10 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":40,
+        "posX":60,
         "posY":2.5,
         "posZ":-14,
-        "scaleX":53.75,
+        "scaleX":93.75,
         "scaleY":5,
     },
     "type":"3DModel",
@@ -720,8 +789,8 @@
     "children":[
 {
     "transform":{
-        "scaleX":2.131203,
-        "scaleY":1.749127,
+        "scaleX":3.2,
+        "scaleY":1.429999,
         "scaleZ":0.1
     },
     "type":"3DModel",
@@ -729,12 +798,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.069,
     },
     "type":"3DModel",
     "text":"Json:\n	\"lightType\":\"point\",\n	\"lightColor\":\"#FF0000\",\n	\"lightRange\":\"6,42\",\n	\"lightIntensity\":\"3,13\"\n	\nJs:\n	objet.SetLightType(\"point\");\n	objet.SetLightColor(\"#FF0000\");\n	objet.SetLightRange(6.42);\n	objet.SetLightIntensity(3.13);",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"3",
+    "textHeight":"5",
 }   
 ]
 }   
@@ -759,12 +831,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.073,
     },
     "type":"3DModel",
     "text":"Render",
     "textColor":"#000000FF",
-    "textSize":"0,3",
+    "textSize":"4",
     "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
 }   
 ]
 },{
@@ -819,8 +894,8 @@
     "children":[
 {
     "transform":{
-        "scaleX":2.304977,
-        "scaleY":1.504555,
+        "scaleX":3.2,
+        "scaleY":1.196497,
         "scaleZ":0.1
     },
     "type":"3DModel",
@@ -828,12 +903,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.063,
     },
     "type":"3DModel",
     "text":"Json:\n	\"lightType\":\"directional\",\n	\"lightColor\":\"#0000FF\",\n	\"lightIntensity\":\"1,0\"\n	\nJs:\n	objet.SetLightType(\"directional\");\n	objet.SetLightColor(\"#0000FF\");\n	objet.SetLightIntensity(\"1,0\");",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"3",
+    "textHeight":"5",
 }   
 ]
 }   
@@ -889,8 +967,8 @@
     "children":[
 {
     "transform":{
-        "scaleX":2.134846,
-        "scaleY":2.061129,
+        "scaleX":3.2,
+        "scaleY":1.696587,
         "scaleZ":0.1
     },
     "type":"3DModel",
@@ -898,12 +976,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.07,
     },
     "type":"3DModel",
     "text":"Json:\n	\"lightType\":\"spot\",\n	\"lightColor\":\"#00FF00\",\n	\"lightRange\":\"18,5\",\n	\"lightAngle\":\"31,62\",\n	\"lightIntensity\":\"4,46\"\n	\nJs:\n	objet.SetLightType(\"spot\");\n	objet.SetLightColor(\"#00FF00\");\n	objet.SetLightRange(18.5);\n	objet.SetLightAngle(31.62);\n	objet.SetLightIntensity(4.46);",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"3",
+    "textHeight":"5",
 }   
 ]
 }   
@@ -939,12 +1020,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.072,
     },
     "type":"3DModel",
     "text":"Light",
     "textColor":"#000000FF",
-    "textSize":"0,3",
+    "textSize":"4",
     "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
 }   
 ]
 },{
@@ -1000,8 +1084,8 @@
 {
     "transform":{
         "posY":-0.137,
-        "scaleX":3.52432,
-        "scaleY":2.228912,
+        "scaleX":6.2,
+        "scaleY":2.061276,
         "scaleZ":0.1
     },
     "type":"3DModel",
@@ -1009,23 +1093,28 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":-0.972,
+        "posX":-1.5,
+        "posZ":-0.084,
     },
     "type":"3DModel",
     "text":"Json:\n	\"transform\":{\n		\"posX\":0.38,\n		\"posY\":2.99,\n		\"posZ\":0.18,\n		\"rotX\":20,\n		\"rotY\":10,\n		\"rotZ\":7.999999,\n		\"scaleX\":1.2,\n		\"scaleY\":2.5,\n		\"scaleZ\":2.8\n	}",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"3",
+    "textHeight":"5",
 },{
     "transform":{
-        "posX":0.809,
-        "posY":-0.141,
+        "posX":1.5,
+        "posZ":-0.071,
     },
     "type":"3DModel",
     "text":"Js:\n	var t = new TransformWeb();\n	\n	t.SetPosX(0.38);\n	t.SetPosY(2.99);\n	t.SetPosZ(0.18);\n	t.SetRotX(20);\n	t.SetRotY(10);\n	t.SetRotZ(7.999999);\n	t.SetScaleX(1.2);\n	t.SetScaleY(2.5);\n	t.SetScaleZ(2.8);\n	\n	objet.SetTransform(t);",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"3",
+    "textHeight":"5",
 }   
 ]
 }   
@@ -1062,12 +1151,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.077,
     },
     "type":"3DModel",
     "text":"Transform",
     "textColor":"#000000FF",
-    "textSize":"0,3",
+    "textSize":"4",
     "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
 }   
 ]
 },{
@@ -1114,8 +1206,8 @@
     "children":[
 {
     "transform":{
-        "scaleX":2.39296,
-        "scaleY":1.154898,
+        "scaleX":3.2,
+        "scaleY":0.9808776,
         "scaleZ":0.1
     },
     "type":"3DModel",
@@ -1123,12 +1215,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.065,
     },
     "type":"3DModel",
     "text":"Json:\n	\"mesh\":\"local:cube\",\n	\"meshCollider\":\"local:cube\"\n	\nJs:\n	objet.SetMesh(\"local:cube\");\n	objet.SetMeshCollider(\"local:cube\");",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"3",
+    "textHeight":"5",
 }   
 ]
 }   
@@ -1165,12 +1260,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.061,
     },
     "type":"3DModel",
     "text":"Mesh",
     "textColor":"#000000FF",
-    "textSize":"0,3",
+    "textSize":"4",
     "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
 }   
 ]
 },{
@@ -1217,8 +1315,8 @@
     "children":[
 {
     "transform":{
-        "scaleX":4.675027,
-        "scaleY":1.140675,
+        "scaleX":4.2,
+        "scaleY":0.9803044,
         "scaleZ":0.1
     },
     "type":"3DModel",
@@ -1226,12 +1324,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.082,
     },
     "type":"3DModel",
     "text":"Json:\n	\"mesh\":\"https://xn--instantan-cs-jeb.com/obj/lowpolytree.obj\",\n	\"meshCollider\":\"https://xn--instantan-cs-jeb.com/obj/lowpolytree.obj\"\n	\nJs:\n	objet.SetMesh(\"https://xn--instantan-cs-jeb.com/obj/lowpolytree.obj\");\n	objet.SetMeshCollider(\"https://xn--instantan-cs-jeb.com/obj/lowpolytree.obj\");",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"4",
+    "textHeight":"5",
 }   
 ]
 }   
@@ -1284,7 +1385,7 @@
     "children":[
 {
     "transform":{
-        "scaleX":4.125081,
+        "scaleX":3.2,
         "scaleY":0.9304027,
         "scaleZ":0.1
     },
@@ -1293,12 +1394,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.06,
     },
     "type":"3DModel",
     "text":"Json:\n	\"texture\":\"https://xn--instantan-cs-jeb.com/Logo1024.png\"\n	\nJs:\n	objet.SetTexture(\"https://xn--instantan-cs-jeb.com/Logo1024.png\");",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"3",
+    "textHeight":"5",
 }   
 ]
 }   
@@ -1335,12 +1439,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.09,
     },
     "type":"3DModel",
     "text":"Texture",
     "textColor":"#000000FF",
-    "textSize":"0,3",
+    "textSize":"4",
     "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
 }   
 ]
 },{
@@ -1379,8 +1486,8 @@
     "children":[
 {
     "transform":{
-        "scaleX":2.671037,
-        "scaleY":1.773615,
+        "scaleX":3.2,
+        "scaleY":1.500336,
         "scaleZ":0.1
     },
     "type":"3DModel",
@@ -1388,12 +1495,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.09,
     },
     "type":"3DModel",
     "text":"Json:\n	\"text\":\"TEXT\",\n    \"textColor\":\"#000000FF\",\n    \"textSize\":\"1,25\",\n    \"textAlignment\":\"Middle-Center\",\n	\nJs:\n	objet.SetText(\"TEXT\");\n	objet.SetTextColor(\"#000000FF\");\n	objet.SetTextSize(1.25);\n	objet.SetTextAlignment(\"Middle-Center\");",
     "textColor":"#000000FF",
-    "textSize":"0,1",
-    "textAlignment":"Middle-Center",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"3",
+    "textHeight":"5",
 }   
 ]
 },{
@@ -1403,8 +1513,10 @@
     "type":"3DModel",
     "text":"TEXT",
     "textColor":"#000000FF",
-    "textSize":"1,25",
+    "textSize":"15",
     "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
 }   
 ]
 },{
@@ -1427,12 +1539,15 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
+        "posZ":-0.09,
     },
     "type":"3DModel",
     "text":"Text",
     "textColor":"#000000FF",
-    "textSize":"0,3",
+    "textSize":"4",
     "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
 }   
 ]
 },{
@@ -1446,8 +1561,146 @@
     "type":"3DModel",
     "mesh":"local:cube",
     "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":63,
+        "posZ":7.999999,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "posY":-0.3099999,
+        "scaleX":6,
+        "scaleY":2,
+        "scaleZ":6
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posY":5.11,
+    },
+    "type":"3DModel",
+    "lightType":"point",
+    "lightColor":"#00FF00",
+    "lightRange":"6,42",
+    "lightIntensity":"3,13",
+},{
+    "transform":{
+        "posY":0.947,
+        "posZ":-3.175,
+        "rotX":45,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "scaleX":3.367109,
+        "scaleY":0.9554963,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posZ":-0.07,
+    },
+    "type":"3DModel",
+    "text":"Json:\n	\"href\":\"https://xn--instantan-cs-jeb.com/test\"\n	\nJs:\n	objet.SetHref(\"https://xn--instantan-cs-jeb.com/test\");",
+    "textColor":"#000000FF",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"3",
+    "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":2.89,
+        "rotY":180,
+        "scaleX":2,
+        "scaleY":2,
+        "scaleZ":2
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+    "href":"https://xn--instantan-cs-jeb.com/test",
+}   
+]
+},{
+    "transform":{
+        "posX":63.00001,
+        "posY":4.44,
+        "posZ":13.34,
+        "rotX":340,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "scaleX":6.315,
+        "scaleY":0.56116,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posZ":-0.09,
+    },
+    "type":"3DModel",
+    "text":"Link",
+    "textColor":"#000000FF",
+    "textSize":"4",
+    "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
+}   
+]
+},{
+    "transform":{
+        "posX":69,
+        "posY":2.5,
+        "posZ":11,
+        "scaleY":5,
+        "scaleZ":6
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":69.00002,
+        "posY":2.5,
+        "posZ":-9.536743E-07,
+        "rotY":90,
+        "scaleX":93.75,
+        "scaleY":5,
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+}   
+]
+},{
+    "transform":{
+        "posY":1.84,
+        "posZ":-6.26,
+        "rotY":157.262,
+    },
+    "type":"3DModel",
+    "text":"qzdqzd",
+    "textColor":"#000000FF",
+    "textSize":"4",
+    "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
+    "type":"InputText",
 }   
 ]
 }
