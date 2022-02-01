@@ -6,7 +6,9 @@ using System;
 using Jint;
 using Newtonsoft.Json;
 using TMPro;
-
+using System.Text.RegularExpressions;
+ 
+ 
 public class TransformWeb
 {
     private float _posX = 0; 
@@ -445,11 +447,19 @@ public class Entity
     
     
     
-    public void StartScript()
+    public async void StartScript()
     {
         if(_script != ""){
-            Navigator._engine.SetValue("entityParent", this);
-            Navigator._engine.Execute(_script);
+            Regex rgx = new Regex(@"^(https?|ftp|ssh|mailto):\/\/[a-z0-9\/:%_+.,#?!@&=-]+$");
+            Match match = rgx.Match(_script);
+            if(match.Success){
+                string script = await Navigator.LoadScript(_script);
+                Navigator._engine.Execute(script);
+            }else {
+                Navigator._engine.SetValue("entityParent", this);
+                Navigator._engine.Execute(_script);
+            }
+            
             
             
         }

@@ -99,7 +99,7 @@ public class GeneratorWorld : MonoBehaviour
         
         TextMeshPro textMesh = obj.GetComponent<TextMeshPro>(); 
         if(textMesh != null){
-            data += "    \"text\":\"" + textMesh.text.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+            data += "    \"text\":\"" + textMesh.text.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
             data += "    \"textColor\":\"#" + ColorUtility.ToHtmlStringRGBA(textMesh.color) + "\",\n";
             data += "    \"textSize\":\"" + textMesh.fontSize + "\",\n";
             
@@ -188,33 +188,33 @@ public class GeneratorWorld : MonoBehaviour
             
             
             if(entity._script != ""){
-                data += "    \"script\":\"" + entity._script.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+                data += "    \"script\":\"" + entity._script.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
             }
             
             if(entity._onClick != ""){
-                data += "    \"onClick\":\"" + entity._onClick.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+                data += "    \"onClick\":\"" + entity._onClick.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
             }
             
             if(entity._onMouseOver != ""){
-                data += "    \"onMouseOver\":\"" + entity._onMouseOver.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+                data += "    \"onMouseOver\":\"" + entity._onMouseOver.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
             }
             if(entity._onMouseOut != ""){
-                data += "    \"onMouseOut\":\"" + entity._onMouseOut.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+                data += "    \"onMouseOut\":\"" + entity._onMouseOut.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
             }
             if(entity._onUpdate != ""){
-                data += "    \"onUpdate\":\"" + entity._onUpdate.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+                data += "    \"onUpdate\":\"" + entity._onUpdate.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
             }
             if(entity._onChangeValue != ""){
-                data += "    \"onChangeValue\":\"" + entity._onChangeValue.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+                data += "    \"onChangeValue\":\"" + entity._onChangeValue.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
             }
             if(entity._onKey != ""){
-                data += "    \"onKey\":\"" + entity._onKey.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+                data += "    \"onKey\":\"" + entity._onKey.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
             }
             if(entity._onFocus != ""){
-                data += "    \"onFocus\":\"" + entity._onFocus.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+                data += "    \"onFocus\":\"" + entity._onFocus.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
             }
             if(entity._onBlur != ""){
-                data += "    \"onBlur\":\"" + entity._onBlur.Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
+                data += "    \"onBlur\":\"" + entity._onBlur.Replace("\\", "\\\\").Replace("\"", "\\\"").Replace(Environment.NewLine, "\\n") + "\",\n";
             }
             if(entity._href != ""){
                 data += "    \"href\":\"" + entity._href + "\",\n";

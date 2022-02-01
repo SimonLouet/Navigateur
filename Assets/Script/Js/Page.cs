@@ -100,6 +100,28 @@ public class Page{
         return null;
     }
     
+    //Entity
+    public List<Entity> GetEntityByType(string type){
+        List<Entity> entity = new List<Entity>();
+        for (int i = 0; i < _entity.Count; i++){
+            if(_entity[i].GetType() == type){
+                entity.Add(_entity[i]);
+            }
+        }
+        return entity;
+    }
+    
+    public List<Entity> GetEntityByTag(string tag){
+        List<Entity> entity = new List<Entity>();
+        for (int i = 0; i < _entity.Count; i++){
+            if(_entity[i].GetTag() == tag){
+                entity.Add(_entity[i]);
+            }
+        }
+        return entity;
+    }
+    
+    
     public void AddEntity(Entity entity){
         _entity.Add(entity);
     }

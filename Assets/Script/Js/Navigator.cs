@@ -218,6 +218,20 @@ public class Navigator : MonoBehaviour
         }
     } 
     
+    public static async Task<String> LoadScript (string path) {
+    
+        if(path == ""){
+            return "";
+        }
+        UnityWebRequest webRequest = await GetRequest(path);
+        if(webRequest .result == UnityWebRequest.Result.Success){
+    		return webRequest.downloadHandler.text;
+        }else{
+            Debug.Log("Impossible de charger le Script : " + path);
+        }
+        return "";
+    }
+    
     
     public static async Task<Mesh> LoadMesh (string path) {
     
@@ -312,21 +326,6 @@ public class Navigator : MonoBehaviour
         
         return webRequest;
         
-        /*switch (webRequest.result)
-        {
-            case UnityWebRequest.Result.ConnectionError:
-            case UnityWebRequest.Result.DataProcessingError:
-                Debug.LogError(pages[page] + ": Error: " + webRequest.error);
-                return "Error : " + webRequest.error;
-                break;
-            case UnityWebRequest.Result.ProtocolError:
-                Debug.LogError(pages[page] + ": HTTP Error: " + webRequest.error);
-                return "Error : " + webRequest.error;
-                break;
-            case UnityWebRequest.Result.Success:
-                return webRequest.downloadHandler.text;
-                break;
-        }*/
             
     }
     

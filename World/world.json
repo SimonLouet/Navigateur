@@ -18,14 +18,14 @@
         "posX":-2.07,
         "posY":13.87,
         "posZ":-4.78,
-        "rotX":14.62374,
-        "rotY":62.90039,
-        "rotZ":141.3402,
+        "rotX":48.93628,
+        "rotY":53.99251,
+        "rotZ":138.2377,
     },
     "type":"3DModel",
     "lightType":"directional",
     "lightColor":"#FFFFFF",
-    "lightIntensity":"0,58",
+    "lightIntensity":"0,81",
 },{
     "transform":{
         "scaleX":200,
@@ -42,10 +42,10 @@
     "children":[
 {
     "transform":{
-        "posX":13,
+        "posX":19,
         "posY":2.5,
         "scaleY":5,
-        "scaleZ":20
+        "scaleZ":28
     },
     "type":"3DModel",
     "mesh":"local:cube",
@@ -60,28 +60,11 @@
     "children":[
 {
     "transform":{
-        "posX":13,
+        "posX":19,
         "posY":2.5,
+        "posZ":2.384186E-07,
         "scaleY":5,
-        "scaleZ":20
-    },
-    "type":"3DModel",
-    "mesh":"local:cube",
-    "meshCollider":"local:cube",
-}   
-]
-},{
-    "transform":{
-        "rotY":216,
-    },
-    "type":"3DModel",
-    "children":[
-{
-    "transform":{
-        "posX":13,
-        "posY":2.5,
-        "scaleY":5,
-        "scaleZ":19.0442
+        "scaleZ":28
     },
     "type":"3DModel",
     "mesh":"local:cube",
@@ -96,7 +79,7 @@
     "children":[
 {
     "transform":{
-        "posX":13,
+        "posX":19,
         "posY":2.5,
         "posZ":8,
         "scaleY":5,
@@ -107,7 +90,7 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":13,
+        "posX":19,
         "posY":2.5,
         "posZ":-8,
         "scaleY":5,
@@ -118,8 +101,9 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":13,
+        "posX":19,
         "posY":4.5,
+        "posZ":-2.384186E-07,
         "scaleZ":4
     },
     "type":"3DModel",
@@ -127,7 +111,7 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":40,
+        "posX":46,
         "posY":2.5,
         "posZ":14,
         "scaleX":53.75,
@@ -138,7 +122,7 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":40,
+        "posX":46,
         "posY":2.5,
         "posZ":-14,
         "scaleX":53.75,
@@ -149,8 +133,8 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":19,
-        "posZ":8,
+        "posX":25,
+        "posZ":8.000001,
     },
     "type":"3DModel",
     "children":[
@@ -214,12 +198,25 @@
     "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":12.37,
+        "posX":18.37,
         "posY":4.44,
+        "posZ":-2.384186E-07,
         "rotX":340,
         "rotY":90,
     },
@@ -249,8 +246,8 @@
 ]
 },{
     "transform":{
-        "posX":29,
-        "posZ":8,
+        "posX":35,
+        "posZ":7.999999,
     },
     "type":"3DModel",
     "children":[
@@ -314,12 +311,25 @@
     "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+        "rotY":-9.659345E-06,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":39,
-        "posZ":8,
+        "posX":45,
+        "posZ":7.999999,
     },
     "type":"3DModel",
     "children":[
@@ -383,11 +393,24 @@
     "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+        "rotY":-1.448902E-05,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":49,
+        "posX":55,
         "posZ":8,
     },
     "type":"3DModel",
@@ -467,11 +490,24 @@
     "meshCollider":"local:cube",
     "onFocus":"entityParent.GetTransform().SetScaleY(3)",
     "onBlur":"entityParent.GetTransform().SetScaleY(1)",
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.800001,
+        "rotX":90,
+        "rotY":-1.448902E-05,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":59,
+        "posX":65,
         "posZ":8,
     },
     "type":"3DModel",
@@ -484,6 +520,8 @@
         "scaleZ":6
     },
     "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
 },{
     "transform":{
         "posY":5,
@@ -535,11 +573,24 @@
     "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.799999,
+        "rotX":90,
+        "rotY":-1.448902E-05,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":39,
+        "posX":45,
         "posY":4.44,
         "posZ":13.332,
         "rotX":340,
@@ -570,7 +621,7 @@
 ]
 },{
     "transform":{
-        "posX":19,
+        "posX":25,
         "posZ":-8,
         "rotY":180,
     },
@@ -637,11 +688,24 @@
     "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":19,
+        "posX":25,
         "posY":4.440001,
         "posZ":-13.332,
         "rotX":340,
@@ -673,7 +737,7 @@
 ]
 },{
     "transform":{
-        "posX":25,
+        "posX":31,
         "posY":2.5,
         "posZ":-11,
         "scaleY":5,
@@ -682,6 +746,340 @@
     "type":"3DModel",
     "mesh":"local:cube",
     "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":71.00001,
+        "posY":2.5,
+        "posZ":1.907349E-06,
+        "scaleY":5,
+        "scaleZ":28.293
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":37,
+        "posZ":-8.000003,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "posY":-0.3099999,
+        "scaleX":6,
+        "scaleY":2,
+        "scaleZ":6
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posY":5,
+    },
+    "type":"3DModel",
+    "lightType":"point",
+    "lightColor":"#FFFF00",
+    "lightRange":"7,96",
+    "lightIntensity":"4,46",
+},{
+    "transform":{
+        "posY":2.31,
+        "scaleX":2,
+        "scaleY":2,
+        "scaleZ":2
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+    "onClick":"RedirectPagePost(\"https://xn--instantan-cs-jeb.com/test\",\"{ \\\"var1\\\":\\\"value1\\\" , \\\"var2\\\":\\\"value2\\\" }\");",
+},{
+    "transform":{
+        "posY":0.947,
+        "posZ":-3.175,
+        "rotX":45,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "scaleX":6.2,
+        "scaleY":0.5,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posZ":-0.1,
+    },
+    "type":"3DModel",
+    "text":"Js:\n	objet.SetOnClick(\"RedirectPagePost(\\\"https://xn--instantan-cs-jeb.com/test\\\",\\\"{ \\\\\\\"var1\\\\\\\":\\\\\\\"value1\\\\\\\" , \\\\\\\"var2\\\\\\\":\\\\\\\"value2\\\\\\\" }\\\");\")",
+    "textColor":"#000000FF",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"6",
+    "textHeight":"5",
+}   
+]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
+}   
+]
+},{
+    "transform":{
+        "posX":42,
+        "posY":4.440001,
+        "posZ":-13.332,
+        "rotX":340,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "scaleX":6.315,
+        "scaleY":0.56116,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posZ":-0.0555,
+    },
+    "type":"3DModel",
+    "text":"Redirection",
+    "textColor":"#000000FF",
+    "textSize":"4",
+    "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
+}   
+]
+},{
+    "transform":{
+        "posX":47,
+        "posZ":-8.000003,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "posY":-0.3099999,
+        "scaleX":6,
+        "scaleY":2,
+        "scaleZ":6
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posY":5,
+    },
+    "type":"3DModel",
+    "lightType":"point",
+    "lightColor":"#FFFF00",
+    "lightRange":"7,96",
+    "lightIntensity":"4,46",
+},{
+    "transform":{
+        "posY":2.31,
+        "scaleX":2,
+        "scaleY":2,
+        "scaleZ":2
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+    "onClick":"RedirectPage(\"https://xn--instantan-cs-jeb.com/test\");",
+},{
+    "transform":{
+        "posY":0.947,
+        "posZ":-3.175,
+        "rotX":45,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "scaleX":6.2,
+        "scaleY":0.5,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posZ":-0.1,
+    },
+    "type":"3DModel",
+    "text":"Js:\n	objet.SetOnClick(\"RedirectPage(\\\"https://xn--instantan-cs-jeb.com/test\\\");\")",
+    "textColor":"#000000FF",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"6",
+    "textHeight":"5",
+}   
+]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
+}   
+]
+},{
+    "transform":{
+        "posX":53,
+        "posY":2.5,
+        "posZ":-11,
+        "scaleY":5,
+        "scaleZ":6
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":59,
+        "posZ":-8.000003,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "posY":-0.3099999,
+        "scaleX":6,
+        "scaleY":2,
+        "scaleZ":6
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posY":5,
+    },
+    "type":"3DModel",
+    "lightType":"point",
+    "lightColor":"#FF00FF",
+    "lightRange":"7,96",
+    "lightIntensity":"4,46",
+},{
+    "transform":{
+        "posY":2.31,
+        "scaleX":2,
+        "scaleY":2,
+        "scaleZ":2
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posY":0.947,
+        "posZ":-3.175,
+        "rotX":45,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "scaleX":3.2,
+        "scaleY":0.49085,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posZ":-0.1,
+    },
+    "type":"3DModel",
+    "text":"Json:\n	\"script\":\"https://xn--instantan-cs-jeb.com/test.js\"",
+    "textColor":"#000000FF",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"3",
+    "textHeight":"1,58",
+}   
+]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
+}   
+]
+},{
+    "transform":{
+        "posX":59,
+        "posY":4.44,
+        "posZ":-13.332,
+        "rotX":340,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "scaleX":6.315,
+        "scaleY":0.56116,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posZ":-0.0555,
+    },
+    "type":"3DModel",
+    "text":"File",
+    "textColor":"#000000FF",
+    "textSize":"4",
+    "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
+}   
+]
 }   
 ]
 },{
@@ -692,9 +1090,9 @@
     "children":[
 {
     "transform":{
-        "posX":13,
+        "posX":19,
         "posY":2.5,
-        "posZ":8,
+        "posZ":7.999996,
         "scaleY":5,
         "scaleZ":12
     },
@@ -703,9 +1101,9 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":13,
+        "posX":19,
         "posY":2.5,
-        "posZ":-8,
+        "posZ":-8.000004,
         "scaleY":5,
         "scaleZ":12
     },
@@ -714,8 +1112,9 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":13,
+        "posX":19,
         "posY":4.5,
+        "posZ":-3.814697E-06,
         "scaleZ":4
     },
     "type":"3DModel",
@@ -723,7 +1122,7 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":60,
+        "posX":66,
         "posY":2.5,
         "posZ":14,
         "scaleX":93.75,
@@ -734,7 +1133,7 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":60,
+        "posX":66,
         "posY":2.5,
         "posZ":-14,
         "scaleX":93.75,
@@ -745,8 +1144,8 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":29,
-        "posZ":8,
+        "posX":35.00001,
+        "posZ":7.999996,
     },
     "type":"3DModel",
     "children":[
@@ -809,12 +1208,26 @@
     "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.800003,
+        "rotX":90,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":12.37,
+        "posX":18.37,
         "posY":4.44,
+        "posZ":-3.814697E-06,
         "rotX":340,
         "rotY":90,
     },
@@ -844,8 +1257,8 @@
 ]
 },{
     "transform":{
-        "posX":19,
-        "posZ":7.999999,
+        "posX":25,
+        "posZ":7.999995,
     },
     "type":"3DModel",
     "children":[
@@ -914,12 +1327,25 @@
     "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":39,
-        "posZ":8,
+        "posX":45,
+        "posZ":7.999996,
     },
     "type":"3DModel",
     "children":[
@@ -987,11 +1413,24 @@
     "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":45,
+        "posX":51.00001,
         "posY":2.5,
         "posZ":11,
         "scaleY":5,
@@ -1002,7 +1441,7 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":29,
+        "posX":35,
         "posY":4.44,
         "posZ":13.34,
         "rotX":340,
@@ -1033,8 +1472,8 @@
 ]
 },{
     "transform":{
-        "posX":19,
-        "posZ":-8,
+        "posX":25,
+        "posZ":-8.000004,
         "rotY":180,
     },
     "type":"3DModel",
@@ -1117,13 +1556,25 @@
     "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":25,
+        "posX":31.00001,
         "posY":2.5,
-        "posZ":-11,
+        "posZ":-11.00001,
         "scaleY":5,
         "scaleZ":6
     },
@@ -1132,7 +1583,7 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":19,
+        "posX":25,
         "posY":4.44,
         "posZ":-13.34,
         "rotX":340,
@@ -1164,8 +1615,8 @@
 ]
 },{
     "transform":{
-        "posX":31,
-        "posZ":-8.000004,
+        "posX":37,
+        "posZ":-8.000006,
         "rotY":180,
     },
     "type":"3DModel",
@@ -1226,13 +1677,25 @@
     "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":47.00001,
+        "posX":53.00001,
         "posY":2.5,
-        "posZ":-11,
+        "posZ":-11.00001,
         "scaleY":5,
         "scaleZ":6
     },
@@ -1241,7 +1704,7 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":36,
+        "posX":42,
         "posY":4.44,
         "posZ":-13.34,
         "rotX":340,
@@ -1273,8 +1736,8 @@
 ]
 },{
     "transform":{
-        "posX":41,
-        "posZ":-8.000005,
+        "posX":47.00001,
+        "posZ":-8.000009,
         "rotY":180,
     },
     "type":"3DModel",
@@ -1335,12 +1798,24 @@
     "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.800004,
+        "rotX":90,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":53,
-        "posZ":-8,
+        "posX":59,
+        "posZ":-8.000004,
         "rotY":180,
     },
     "type":"3DModel",
@@ -1405,13 +1880,25 @@
     "textHeight":"5",
 }   
 ]
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.799999,
+        "rotX":90,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":59.00001,
+        "posX":65.00002,
         "posY":2.5,
-        "posZ":-11,
+        "posZ":-11.00001,
         "scaleY":5,
         "scaleZ":6
     },
@@ -1420,7 +1907,7 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":53,
+        "posX":59,
         "posY":4.44,
         "posZ":-13.34,
         "rotX":340,
@@ -1452,8 +1939,8 @@
 ]
 },{
     "transform":{
-        "posX":51,
-        "posZ":7.999996,
+        "posX":57.00001,
+        "posZ":7.999992,
     },
     "type":"3DModel",
     "children":[
@@ -1517,13 +2004,26 @@
     "textAlignment":"Middle-Center",
     "textWidth":"20",
     "textHeight":"5",
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":51.00001,
+        "posX":57.00001,
         "posY":4.44,
-        "posZ":13.34,
+        "posZ":13.33999,
         "rotX":340,
     },
     "type":"3DModel",
@@ -1552,9 +2052,9 @@
 ]
 },{
     "transform":{
-        "posX":57,
+        "posX":63,
         "posY":2.5,
-        "posZ":11,
+        "posZ":10.99999,
         "scaleY":5,
         "scaleZ":6
     },
@@ -1563,8 +2063,8 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":63,
-        "posZ":7.999999,
+        "posX":69.00001,
+        "posZ":7.999995,
     },
     "type":"3DModel",
     "children":[
@@ -1629,13 +2129,26 @@
     "mesh":"local:cube",
     "meshCollider":"local:cube",
     "href":"https://xn--instantan-cs-jeb.com/test",
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+        "rotY":180,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
 }   
 ]
 },{
     "transform":{
-        "posX":63.00001,
+        "posX":69.00002,
         "posY":4.44,
-        "posZ":13.34,
+        "posZ":13.33999,
         "rotX":340,
     },
     "type":"3DModel",
@@ -1664,7 +2177,7 @@
 ]
 },{
     "transform":{
-        "posX":69,
+        "posX":75,
         "posY":2.5,
         "posZ":11,
         "scaleY":5,
@@ -1675,9 +2188,9 @@
     "meshCollider":"local:cube",
 },{
     "transform":{
-        "posX":69.00002,
+        "posX":75.00002,
         "posY":2.5,
-        "posZ":-9.536743E-07,
+        "posZ":-4.768372E-06,
         "rotY":90,
         "scaleX":93.75,
         "scaleY":5,
@@ -1689,18 +2202,326 @@
 ]
 },{
     "transform":{
-        "posY":1.84,
-        "posZ":-6.26,
-        "rotY":157.262,
+        "rotY":216,
     },
     "type":"3DModel",
-    "text":"qzdqzd",
+    "children":[
+{
+    "transform":{
+        "posX":19,
+        "posY":2.5,
+        "posZ":8,
+        "scaleY":5,
+        "scaleZ":12
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":19,
+        "posY":2.5,
+        "posZ":-8,
+        "scaleY":5,
+        "scaleZ":12
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":19,
+        "posY":4.5,
+        "posZ":-2.384186E-07,
+        "scaleZ":4
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":46,
+        "posY":2.5,
+        "posZ":14,
+        "scaleX":53.75,
+        "scaleY":5,
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":46,
+        "posY":2.5,
+        "posZ":-14,
+        "scaleX":53.75,
+        "scaleY":5,
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":25,
+        "posZ":8.000001,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "posY":-0.3099999,
+        "scaleX":6,
+        "scaleY":2,
+        "scaleZ":6
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posY":5,
+    },
+    "type":"3DModel",
+    "lightType":"point",
+    "lightColor":"#0000FF",
+    "lightRange":"7,96",
+    "lightIntensity":"4,46",
+},{
+    "transform":{
+        "posY":0.947,
+        "posZ":-3.175,
+        "rotX":45,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "scaleX":3.2,
+        "scaleY":0.9188699,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posZ":-0.1,
+    },
+    "type":"3DModel",
+    "text":"Json:\n	\"type\":\"InputText\"\n	\nJs:\n	objet.SetType(\"InputText\");",
+    "textColor":"#000000FF",
+    "textSize":"1",
+    "textAlignment":"Middle-Left",
+    "textWidth":"3",
+    "textHeight":"5",
+}   
+]
+},{
+    "transform":{
+        "posY":2.45,
+    },
+    "type":"3DModel",
+    "text":"InputText",
     "textColor":"#000000FF",
     "textSize":"4",
     "textAlignment":"Middle-Center",
     "textWidth":"20",
     "textHeight":"5",
     "type":"InputText",
+},{
+    "transform":{
+        "posY":7.5,
+        "posZ":-3.8,
+        "rotX":90,
+    },
+    "type":"3DModel",
+    "lightType":"spot",
+    "lightColor":"#FFF1B3",
+    "lightRange":"12,67",
+    "lightAngle":"54,44",
+    "lightIntensity":"2,64",
+}   
+]
+},{
+    "transform":{
+        "posX":18.37,
+        "posY":4.44,
+        "posZ":-2.384186E-07,
+        "rotX":340,
+        "rotY":90,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "scaleX":6.315,
+        "scaleY":0.56116,
+        "scaleZ":0.1
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posZ":-0.063,
+    },
+    "type":"3DModel",
+    "text":"Type",
+    "textColor":"#000000FF",
+    "textSize":"4",
+    "textAlignment":"Middle-Center",
+    "textWidth":"20",
+    "textHeight":"5",
+}   
+]
+},{
+    "transform":{
+        "posX":31.00001,
+        "posY":2.5,
+        "posZ":-1.907349E-06,
+        "scaleY":5,
+        "scaleZ":28.293
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+}   
+]
+},{
+    "transform":{
+        "posX":-17.78,
+        "posY":4.92,
+        "scaleX":0.2,
+        "scaleY":8.2,
+        "scaleZ":12.2
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":-15.89,
+        "posY":1.89,
+        "rotZ":61.24398,
+    },
+    "type":"3DModel",
+    "children":[
+{
+    "transform":{
+        "rotZ":0.000215151,
+        "scaleX":0.2,
+        "scaleY":3.99308,
+        "scaleZ":7.5
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+},{
+    "transform":{
+        "posX":0.11,
+        "posY":1.59,
+        "rotY":270,
+    },
+    "type":"3DModel",
+    "text":"E-mail :",
+    "textColor":"#000000FF",
+    "textSize":"4",
+    "textAlignment":"Middle-Left",
+    "textWidth":"7,3",
+    "textHeight":"0,9",
+},{
+    "transform":{
+        "posX":0.11,
+        "posY":0.93,
+        "rotY":270,
+    },
+    "type":"3DModel",
+    "text":"...",
+    "textColor":"#000000FF",
+    "textSize":"4",
+    "textAlignment":"Middle-Left",
+    "textWidth":"7,3",
+    "textHeight":"0,9",
+    "id":"AvisMail",
+    "type":"InputText",
+},{
+    "transform":{
+        "posX":0.11,
+        "posY":0.28,
+        "rotY":270,
+    },
+    "type":"3DModel",
+    "text":"Avis",
+    "textColor":"#000000FF",
+    "textSize":"4",
+    "textAlignment":"Middle-Left",
+    "textWidth":"7,3",
+    "textHeight":"0,9",
+},{
+    "transform":{
+        "posX":0.11,
+        "posY":-0.944,
+        "rotY":270,
+    },
+    "type":"3DModel",
+    "text":"...",
+    "textColor":"#000000FF",
+    "textSize":"4",
+    "textAlignment":"Upper-Left",
+    "textWidth":"7,3",
+    "textHeight":"1,8",
+    "id":"AvisText",
+    "type":"InputText",
+},{
+    "transform":{
+        "posY":-2.576,
+        "posZ":-2.844,
+        "rotZ":0.000215151,
+        "scaleX":0.2,
+        "scaleY":0.8099962,
+        "scaleZ":1.7733
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+    "onClick":"var mail = Page.GetEntityById(\"AvisMail\").GetValue();var avis = Page.GetEntityById(\"AvisText\").GetValue();if(mail != \"\" && avis != \"\"){RedirectPagePost(\"https://xn--instantan-cs-jeb.com/addAvis\",\"{\\\"mail\\\":\\\"\" + mail + \"\\\" , \\\"avis\\\":\\\"\" + avis + \"\\\" }\")} ",
+},{
+    "transform":{
+        "posX":0.11,
+        "posY":-2.541,
+        "posZ":-2.877,
+        "rotY":270,
+    },
+    "type":"3DModel",
+    "text":"Envoyer",
+    "textColor":"#000000FF",
+    "textSize":"4",
+    "textAlignment":"Middle-Center",
+    "textWidth":"7,3",
+    "textHeight":"0,9",
+    "id":"AvisMail",
+}   
+]
+},{
+    "transform":{
+        "posX":5.681298,
+        "posY":2.66,
+        "posZ":8.07654,
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+    "script":"entityParent.SetLightType(\"point\"); ",
+},{
+    "transform":{
+        "posX":5.681298,
+        "posY":2.66,
+        "posZ":3.78,
+    },
+    "type":"3DModel",
+    "mesh":"local:cube",
+    "meshCollider":"local:cube",
+    "script":"https://xn--instantan-cs-jeb.com/test.js",
 }   
 ]
 }
